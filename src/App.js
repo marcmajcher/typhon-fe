@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { checkToken } from './actions';
-import LoginButton from './components/LoginButton';
+import TopNav from './components/TopNav'
 import TestConsole from './components/TestConsole';
 
 export default function App() {
@@ -19,8 +19,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Typhon Station</h1>
-      <LoginButton />
+      <TopNav></TopNav>
       <TestConsole />
     </div>
   );

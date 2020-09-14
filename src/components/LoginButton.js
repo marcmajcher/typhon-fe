@@ -31,21 +31,25 @@ export default function LoginButton() {
   }
 
   return (
-    <div className={loggedIn ? 'button-login' : 'splash-button-login'}>
+    <div className={'button-login'}>
       {loggedIn ?
         <GoogleLogout
-          className={loggedIn ? '' : 'hidden'}
           clientId={appId}
           buttonText="Logout"
           onLogoutSuccess={() => dispatch(logOutUser())}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Logout</button>
+          )}
         ></GoogleLogout> :
         <GoogleLogin
           clientId={appId}
-          className={loggedIn ? 'hidden' : ''}
           buttonText="Log In With Gargle"
           onSuccess={(res) => handleLogin(res)}
           onFailure={(res) => console.error(`Login Error: ${res}`)}
           cookiePolicy={'single_host_origin'}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login with Google</button>
+          )}
         />}
     </div>
   );

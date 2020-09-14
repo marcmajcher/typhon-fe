@@ -1,3 +1,31 @@
 .App {
   text-align: center;
+  background-color: black;
+  color: #ccccff;
+  border: 2px solid greenyellow;
+  border-radius: 1em;
+  padding: 1em;
+  min-height: 90vh;
+}
+
+.top-nav {
+  height: 4em;
+  margin-bottom: 1em;
+}
+
+.top-nav h1 {
+  color: green;
+  float: left;
+}
+
+.button-login {
+  float: right;
+}
+
+.console {
+  padding: 8px;
+  border: 1px solid green;
+  position: absolute;
+  bottom: 2em;
+  width: 90%;
 }

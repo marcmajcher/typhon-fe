@@ -1,9 +1,9 @@
+body {
+  background-color: black;
+  padding: 1em;
+}
+
 .hidden {
   display: none;
   border: 4px solid red;
-}
-
-.console {
-  padding: 8px;
-  border: 1px solid green;
 }

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { checkToken } from './actions';
-import TopNav from './components/TopNav'
+import TopNav from './components/TopNav';
 import TestConsole from './components/TestConsole';
 
 export default function App() {

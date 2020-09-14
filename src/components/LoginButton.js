@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { logInUser, logOutUser, setUserInfo } from '../actions';
 
-
 export default function LoginButton() {
   const dispatch = useDispatch();
   const appId = useSelector((s) => s.appId);

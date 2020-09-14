@@ -14,7 +14,7 @@ const defaultStore = {
 };
 
 function reducer(state = defaultStore, action) {
-  // console.log("DISPATCHED:", action.type)
+  console.log("DISPATCHED:", action.type)
   switch (action.type) {
     case 'CHECK_TOKEN':
       const localToken = localStorage.getItem(tokenKey);

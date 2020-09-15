@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { checkToken } from './actions';
-import TopNav from './components/TopNav'
-import TestConsole from './components/TestConsole';
+import TopNav from './components/TopNav';
+import Main from './components/Main';
+import Splash from './components/Splash';
 
 export default function App() {
 
   // const endpoint = useSelector((s) => s.endpoint);
   // const gameState = useSelector((s) => s.gameState);
-  // const loggedIn = !!useSelector((s) => s.userInfo);
+  const loggedIn = !!useSelector((s) => s.userInfo);
   const token = useSelector((s) => s.token);
   const dispatch = useDispatch();
 
@@ -20,7 +21,7 @@ export default function App() {
   return (
     <div className="App">
       <TopNav></TopNav>
-      <TestConsole />
+      {loggedIn ? <Main /> : <Splash />}
     </div>
   );
 }

@@ -3,14 +3,15 @@
   background-color: black;
   color: #ccccff;
   border: 2px solid greenyellow;
-  border-radius: 1em;
-  padding: 1em;
+  border-radius: .5em;
   min-height: 90vh;
 }
 
 .top-nav {
   height: 4em;
   margin-bottom: 1em;
+  background-color: #003300;
+  padding: 1em;
 }
 
 .top-nav h1 {
@@ -33,4 +34,6 @@
 .user-image {
   border: 1px solid greenyellow;
   border-radius: 50%;
+  height: 4em;
+  width: auto;
 }

@@ -3,7 +3,8 @@ import { createStore } from 'redux';
 const tokenKey = '_t';
 const defaultStore = {
   appId:
-    '730966416306-rcg0c33b4ivc3t9ofd5s61dd5uifl60t.apps.googleusercontent.com',
+    '240075575983-v6lk702qaapea93k2641oh4fg6deeh8s.apps.googleusercontent.com',
+  debug: false,
   endpoint:
     process.env.NODE_ENV === 'production'
       ? 'https://my-app-backend.herokuapp.com'
@@ -14,7 +15,7 @@ const defaultStore = {
 };
 
 function reducer(state = defaultStore, action) {
-  console.log("DISPATCHED:", action.type)
+  if (state.debug) { console.log("DISPATCHED:", action.type, action.payload); }
   switch (action.type) {
     case 'CHECK_TOKEN':
       const localToken = localStorage.getItem(tokenKey);

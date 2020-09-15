@@ -21,9 +21,10 @@ export default function LoginButton() {
   }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleLogin(info) {
+    console.log('handleLogin info:',info)
     axios
-      .post(`${endpoint}/users`, {
-        token: info.tokenObj.id_token,
+      .post(`${endpoint}/users/auth`, {
+        id_token: info.tokenObj.id_token,
         userData: info.profileObj,
       })
       .then((res) => dispatch(logInUser(info.profileObj, res.data.token)))
@@ -38,17 +39,16 @@ export default function LoginButton() {
           buttonText="Logout"
           onLogoutSuccess={() => dispatch(logOutUser())}
           render={renderProps => (
-            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Logout</button>
+            <button onClick={renderProps.onClick}>Logout</button>
           )}
         ></GoogleLogout> :
         <GoogleLogin
           clientId={appId}
-          buttonText="Log In With Gargle"
           onSuccess={(res) => handleLogin(res)}
           onFailure={(res) => console.error(`Login Error: ${res}`)}
           cookiePolicy={'single_host_origin'}
           render={renderProps => (
-            <button onClick={renderProps.onClick} disabled={renderProps.disabled}>Login with Google</button>
+            <button onClick={renderProps.onClick}>Login with Google</button>
           )}
         />}
     </div>

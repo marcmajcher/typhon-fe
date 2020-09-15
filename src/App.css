@@ -29,3 +29,8 @@
   bottom: 2em;
   width: 90%;
 }
+
+.user-image {
+  border: 1px solid greenyellow;
+  border-radius: 50%;
+}

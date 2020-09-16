@@ -22,7 +22,6 @@ describe('Logged in', () => {
     // but here we are.
   });
   it('Should show the main page upon authentication', () => {
-
     cy.visit(url, {
       onBeforeLoad(win) {
         win.localStorage.setItem('_t', testToken);

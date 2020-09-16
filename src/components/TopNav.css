@@ -8,7 +8,7 @@
 }
 
 .title {
-  color: #00cc00;
+  color: #009900;
   font-weight: 900;
   font-size: 7em;
   text-transform: capitalize;
@@ -19,7 +19,7 @@
 }
 
 .user-image {
-  border: 2px solid #99ff99;
+  border: 2px solid #009900;
   border-radius: 50%;
   height: 3em;
   width: auto;

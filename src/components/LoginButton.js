@@ -32,7 +32,7 @@ export default function LoginButton() {
   }
 
   return (
-    <div className={'button-login'}>
+    <div className="button-login">
       {loggedIn ?
         <GoogleLogout
           clientId={appId}

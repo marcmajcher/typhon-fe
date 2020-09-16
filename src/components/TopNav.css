@@ -1,0 +1,31 @@
+.top-nav {
+  display: flex;
+  align-items: center;
+  background-color: #003300;
+  /* height: 4em; */
+  padding: 1em;
+}
+
+.top-nav h1 {
+  color: #00cc00;
+  display: inline-block;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.user-image {
+  border: 2px solid #99ff99;
+  border-radius: 50%;
+  height: 3em;
+  width: auto;
+}
+
+.button-login {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  height: 38px;
+}
+
+.button-login button {
+  margin: 0;
+}

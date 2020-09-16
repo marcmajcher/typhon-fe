@@ -1,13 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-// import axios from 'axios';
+import './Main.css';
 
-export default function Main() {
-  const token = useSelector(s => s.token);
-  const userInfo = useSelector(s => s.userInfo);
-  // const endpoint = useSelector(s => s.endpoint);
-  const loggedIn = useSelector(s => s.loggedIn);
-  // const [userList, setUserList] = useState([]);
+export default function Main(props) {
 
   // useEffect(() => {
   //   if (token) {
@@ -23,12 +17,6 @@ export default function Main() {
   // }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <main>
-    <h1>Main Page</h1>
-    <ul>
-      <li>LoggedIn: {loggedIn.toString()}</li>
-      <li>Token: {token}</li>
-      <li>UserInfo: {JSON.stringify(userInfo)}</li>
-      {/* <li>Users: {JSON.stringify(userList)}</li> */}
-    </ul>
+    {props.children}
   </main>;
 }

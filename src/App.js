@@ -4,7 +4,8 @@ import './App.css';
 import { checkToken } from './actions';
 import TopNav from './components/TopNav';
 import Main from './components/Main';
-import Splash from './components/Splash';
+import SplashPage from './pages/SplashPage';
+import HomePage from './pages/HomePage'
 
 export default function App() {
 
@@ -21,7 +22,10 @@ export default function App() {
   return (
     <div className="App">
       <TopNav></TopNav>
-      {loggedIn ? <Main /> : <Splash />}
+      <Main>
+      {loggedIn ? <HomePage /> : <SplashPage />}
+      </Main>
+     
     </div>
   );
 }

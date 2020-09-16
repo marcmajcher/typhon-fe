@@ -1,7 +1,5 @@
 
 const testToken = Cypress.env('TEST_TOKEN');
-console.log(Cypress.env)
-console.log(testToken)
 const url = 'http://localhost:3030/';
 
 describe('Basic tests', () => {
@@ -13,7 +11,7 @@ describe('Basic tests', () => {
     cy.contains('splash page');
   });
   it('Should not show the main page when not logged in', () => {
-    cy.get('main').should('not.contain', 'Main Page');
+    cy.get('main').should('not.contain', 'Welcome to Typhon Station,');
   });
 });
 
@@ -27,6 +25,6 @@ describe('Logged in', () => {
         win.localStorage.setItem('_t', testToken);
       }
     });
-    cy.contains('Main Page');
+    cy.contains('Welcome to Typhon Station,');
   });
 });

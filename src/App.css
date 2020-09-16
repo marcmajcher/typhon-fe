@@ -1,39 +1,11 @@
 .App {
-  text-align: center;
-  background-color: black;
-  color: #ccccff;
-  border: 2px solid greenyellow;
-  border-radius: .5em;
+  background-color: #0f0f23;
+  color: #cccccc;
+  border: 1px solid #99ff99;
+  border-radius: 0.5em;
   min-height: 90vh;
+  margin: 0.5em;
+  overflow: hidden;
 }
 
-.top-nav {
-  height: 4em;
-  margin-bottom: 1em;
-  background-color: #003300;
-  padding: 1em;
-}
 
-.top-nav h1 {
-  color: green;
-  float: left;
-}
-
-.button-login {
-  float: right;
-}
-
-.console {
-  padding: 8px;
-  border: 1px solid green;
-  position: absolute;
-  bottom: 2em;
-  width: 90%;
-}
-
-.user-image {
-  border: 1px solid greenyellow;
-  border-radius: 50%;
-  height: 4em;
-  width: auto;
-}

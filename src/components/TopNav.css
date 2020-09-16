@@ -3,7 +3,7 @@
   align-items: center;
   background-color: #003300;
   /* height: 4em; */
-  padding: 1em;
+  padding: 0 1em;
 }
 
 .top-nav h1 {
@@ -28,4 +28,12 @@
 
 .button-login button {
   margin: 0;
+}
+
+.logo-img {
+  border-top-left-radius: .5em;
+  /* position: relative; */
+  margin-left: -1em;
+  height: 6em;
+  width: 6em;
 }

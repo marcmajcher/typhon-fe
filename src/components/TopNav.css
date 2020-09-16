@@ -2,15 +2,20 @@
   display: flex;
   align-items: center;
   background-color: #003300;
-  /* height: 4em; */
+  height: 4em;
   padding: 0 1em;
+  overflow: hidden;
 }
 
-.top-nav h1 {
+.title {
   color: #00cc00;
+  font-weight: 900;
+  font-size: 7em;
+  text-transform: capitalize;
   display: inline-block;
   flex-grow: 1;
   margin: 0;
+  margin-left: -0.2em
 }
 
 .user-image {

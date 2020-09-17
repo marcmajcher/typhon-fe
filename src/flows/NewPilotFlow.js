@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NewPilotStep1 from './NewPilotStep1';
-import NewPilotStep2 from './NewPilotStep2';
+import NewStep from './NewPilotSelectStep';
+
 import './NewPilotFlow.css';
 import data from '../data/pilotData';
 
@@ -8,15 +8,21 @@ export default function NewPilotFlow() {
   const [pilotInfo, setPilotInfo] = useState({});
   const [step, setStep] = useState(0);
 
-  const fields = ['species', 'occupation', 'gender', 'lineage', 'appearance', 'keepsake'];
-  const trail = fields.filter(e => pilotInfo.hasOwnProperty(e)).map(e => data.getById(e, pilotInfo[e]).name).join(' > ');
   const steps = [
-    <NewPilotStep1 species={data.species} setSpecies={species => setField('species', species)} nextStep={nextStep} />,
-    <NewPilotStep2 occupations={data.bySpecies('occupation',pilotInfo.species)}
-      setOccupation={occ => setField('occupation', occ)} nextStep={nextStep} previousStep={previousStep} />,
+    { infoField: 'species', dataField: 'species', label: 'Choose a Species' },
+    { infoField: 'occupation', dataField: 'occupations', label: 'Select an Occupation' },
+    { infoField: 'gender', dataField: 'genders', label: 'Choose a Gender' },
+    { infoField: 'lineage', dataField: 'lineages', label: 'What is your Lineage?' },
+    { infoField: 'appearance', dataField: 'appearances', label: 'Choose your Appearance' },
+    { infoField: 'keepsake', dataField: 'keepsakes', label: 'What is your Keepsake?' },
   ];
 
-  function setField(field, value) {
+  const trail = steps
+    .filter(e => pilotInfo.hasOwnProperty(e.infoField))
+    .map(e => data.getById(e.dataField, pilotInfo[e.infoField]).name)
+    .join(' > ');
+
+  function setInfo(field, value) {
     setPilotInfo({ ...pilotInfo, [field]: value });
   }
 
@@ -26,17 +32,15 @@ export default function NewPilotFlow() {
 
   function previousStep() {
     const newPilotInfo = { ...pilotInfo };
-    delete newPilotInfo[fields[step]];
+    delete newPilotInfo[steps[step].infoField];
     setPilotInfo(newPilotInfo);
     setStep(Math.max(step - 1, 0));
   }
 
-
   return <div>
     <h2>Looks like you're new here. Let's get you a new pilot.</h2>
-
     <div><b>:: {trail}</b></div>
-
-    {steps[step]}
+    <NewStep step={{ step, ...steps[step] }} data={data} pilotInfo={pilotInfo}
+      nextStep={nextStep} previousStep={previousStep} setInfo={setInfo} />
   </div >;
 }

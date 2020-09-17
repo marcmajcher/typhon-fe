@@ -3,33 +3,41 @@ export default {
     {
       id: 1, name: 'Nahmra',
       description: 'monkeys',
-      occupation: [1, 2, 3, 4, 5],
-      lineage: [1, 2, 3],
-      gender: [1, 2, 4],
+      occupations: [1, 2, 3, 4, 5],
+      lineages: [1, 2, 3],
+      genders: [1, 2, 4],
+      appearances: [69,69,69],
+      keepsakes: [666, 666, 666],
     },
     {
       id: 2, name: 'Korazz',
       description: 'bugs',
-      occupation: [6, 7, 8, 9, 10],
-      lineage: [4, 5, 6],
-      gender: [5, 6, 7, 8]
+      occupations: [6, 7, 8, 9, 10],
+      lineages: [4, 5, 6],
+      genders: [5, 6, 7, 8],
+      appearances: [69,69,69],
+      keepsakes: [666, 666, 666],
     },
     {
       id: 3, name: 'Runian',
       description: 'rocks',
-      occupation: [11, 12, 13, 14, 15],
-      lineage: [7, 8, 9],
-      gender: [9]
+      occupations: [11, 12, 13, 14, 15],
+      lineages: [7, 8, 9],
+      genders: [9],
+      appearances: [69,69,69],
+      keepsakes: [666, 666, 666],
     },
     {
       id: 4, name: 'Wyl',
       description: 'gas',
-      occupation: [16, 17, 18, 19, 20],
-      lineage: [10, 11, 12],
-      gender: [10, 11, 12, 13, 14, 15]
+      occupations: [16, 17, 18, 19, 20],
+      lineages: [10, 11, 12],
+      genders: [10, 11, 12, 13, 14, 15],
+      appearances: [69,69,69],
+      keepsakes: [666, 666, 666],
     }
   ],
-  occupation: [
+  occupations: [
     { id: 1, name: 'VR Promoter', attitude: 'Volatile', tactics: 'Efficient', interests: 'Social', structure: 'Stratified' },
     { id: 2, name: 'Stim Dealer', attitude: 'Disciplined', tactics: 'Detached', interests: 'Hedonic', structure: 'Autarchic' },
     { id: 3, name: 'Political Agitator', attitude: 'Adaptable', tactics: 'Intimate', interests: 'Economic', structure: 'Communal' },
@@ -51,7 +59,7 @@ export default {
     { id: 19, name: 'Military Programmer', attitude: 'Relentless', tactics: 'Detached', interests: 'Technical', structure: 'Stratified' },
     { id: 20, name: 'Confidence Artist', attitude: 'Adaptable', tactics: 'Casual', interests: 'Hedonic', structure: 'Solitary' },
   ],
-  lineage: [
+  lineages: [
     { id: 1, name: 'Troop1' },
     { id: 2, name: 'Troop2' },
     { id: 3, name: 'Troop3' },
@@ -65,7 +73,7 @@ export default {
     { id: 11, name: 'Cloud2' },
     { id: 12, name: 'Cloud3' },
   ],
-  gender: [
+  genders: [
     { id: 1, name: 'male' },
     { id: 2, name: 'female' },
     { id: 4, name: 'agender' },
@@ -80,6 +88,12 @@ export default {
     { id: 13, name: 'teal' },
     { id: 14, name: 'violet' },
     { id: 15, name: 'indigo' },
+  ],
+  appearances: [
+    { id: 69, name: 'Looky'}
+  ],
+  keepsakes: [
+    {id :666, name: 'Rock'}
   ],
 
   getById: function (key, id) { return this[key].find(e => e.id === parseInt(id)); },

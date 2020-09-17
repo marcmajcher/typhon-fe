@@ -9,7 +9,9 @@ const defaultStore = {
     process.env.NODE_ENV === 'production'
       ? 'https://my-app-backend.herokuapp.com'
       : 'http://localhost:3000',
+  gameState: undefined,
   loggedIn: false,
+  pilotInfo: undefined,
   token: undefined,
   userInfo: undefined
 };
@@ -32,6 +34,8 @@ function reducer(state = defaultStore, action) {
         token: undefined,
         userInfo: undefined,
       };
+    case 'SET_GAME_STATE':
+      return { ...state, gameState: action.payload };
     case 'SET_USER_INFO':
       return { ...state, userInfo: action.payload, loggedIn: true };
     default:

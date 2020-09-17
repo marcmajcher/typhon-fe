@@ -1,24 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { logInUser, logOutUser, setUserInfo } from '../actions';
+import { logInUser, logOutUser } from '../actions';
 
 export default function LoginButton() {
   const dispatch = useDispatch();
   const appId = useSelector((s) => s.appId);
   const endpoint = useSelector((s) => s.endpoint);
   const loggedIn = useSelector((s) => s.loggedIn);
-  const token = useSelector((s) => s.token);
-
-  useEffect(() => {
-    if (token) {
-      axios
-        .post(`${endpoint}/users/verify`, { token })
-        .then((response) => dispatch(setUserInfo(response.data)))
-        .catch(() => dispatch(logOutUser()));
-    }
-  }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleLogin(info) {
     console.log('handleLogin info:',info)

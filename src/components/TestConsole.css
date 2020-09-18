@@ -1,0 +1,18 @@
+.console {
+  background-color: rgba(0, 20, 0, 0.9);
+  border: 1px solid #009900;
+  border-radius: 1em;
+  height: 85vh;
+  left: 2vw;
+  overflow: hidden;
+  padding: 1em;
+  position: absolute;
+  top: 6em;
+  width: 94vw;
+}
+
+.console-header {
+  background-color: black;
+  margin-bottom: .5em;
+  text-align: center;
+}

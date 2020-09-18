@@ -5,10 +5,10 @@ const url = 'http://localhost:3030/';
 describe('Basic tests', () => {
   it('Should have a title', () => {
     cy.visit(url);
-    cy.contains('Typhon Station');
+    cy.get('nav').should('contain', 'TYPHON STATION');
   });
   it('Should show a splash page when not logged in', () => {
-    cy.contains('splash page');
+    cy.contains('Welcome to Typhon Station');
   });
   it('Should not show the main page when not logged in', () => {
     cy.get('main').should('not.contain', 'Welcome to Typhon Station,');
@@ -19,12 +19,12 @@ describe('Logged in', () => {
   xit('Should log in and get authenticated', () => {
     // but here we are.
   });
-  it('Should show the main page upon authentication', () => {
+  it('Should show a user image upon authentication', () => {
     cy.visit(url, {
       onBeforeLoad(win) {
         win.localStorage.setItem('_t', testToken);
       }
     });
-    cy.contains('Welcome to Typhon Station,');
+    cy.get('img.user-image').should('exist');
   });
 });

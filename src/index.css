@@ -6,3 +6,16 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.hidden {
+  display: none;
+}
+
+.pi {
+  bottom: 4px;
+  color: #009900;
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  right: 4px;
+}

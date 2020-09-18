@@ -14,13 +14,13 @@ export default function NewPilotFlow() {
     { infoField: 'gender', dataField: 'genders', label: 'Choose a Gender' },
     { infoField: 'lineage', dataField: 'lineages', label: 'What is your Lineage?' },
     { infoField: 'appearance', dataField: 'appearances', label: 'Choose your Appearance' },
-    { infoField: 'keepsake', dataField: 'keepsakes', label: 'What is your Keepsake?' },
+    { infoField: 'keepsake', dataField: 'keepsakes', label: 'Pick a personal Keepsake' },
   ];
 
   const trail = steps
     .filter(e => pilotInfo.hasOwnProperty(e.infoField))
     .map(e => data.getById(e.dataField, pilotInfo[e.infoField]).name)
-    .join(' > ');
+    .join(' :: ');
 
   function setInfo(field, value) {
     setPilotInfo({ ...pilotInfo, [field]: value });

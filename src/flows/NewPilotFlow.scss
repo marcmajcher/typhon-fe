@@ -22,29 +22,14 @@ li {
   border-bottom: 1px solid $color-base;
 }
 
-input[type="radio"].card-radio {
-  display: none;
-}
-
-input[type="radio"].card-radio:checked + label {
-  background-color: black;
-  border: 2px inset $color-base;
-  color: $color-base;
-  margin-bottom: 0;
-
-  img {
-    filter: brightness(1);
-  }
-}
-
 .species-card {
   background-color: $color-base;
-  display: inline-block;
+  color: black;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10px;
   text-align: center;
   width: 208px;
-
-  margin: 10px;
-  color: black;
 
   img {
     filter: brightness(0);
@@ -54,5 +39,32 @@ input[type="radio"].card-radio:checked + label {
 
   input {
     display: none;
+  }
+
+  input[type="radio"].card-radio {
+    display: none;
+  }
+
+  input[type="radio"].card-radio + label {
+    border: 2px solid $color-darkest;
+    margin: 0;
+  }
+
+  input[type="radio"].card-radio:checked + label {
+    background-color: black;
+    border: 2px solid $color-base;
+    border-bottom: 0;
+    color: $color-base;
+
+    img {
+      filter: brightness(1);
+    }
+  }
+
+  p {
+    background-color: $color-base;
+    color: black;
+    margin: 0;
+    padding: 4px;
   }
 }

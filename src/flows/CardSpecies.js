@@ -11,7 +11,9 @@ export default function CardSpecies(props) {
     <label htmlFor={info.name}>
       {getImage(info.name.toLowerCase())}
       <h3>{info.name}</h3>
+      <p>
+        {info.description}
+      </p>
     </label>
-    {info.description}
   </div>;
 }

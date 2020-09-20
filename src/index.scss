@@ -10,5 +10,15 @@ body {
 }
 
 button {
-  
+  background-color: $color-dark;
+  border-color: $color-base;
+  border-radius: 0;
+  color: $color-base;
+}
+
+button:hover {
+  background-color: $color-light;
+  border-color: $color-dark;
+  color: $color-dark;
+
 }

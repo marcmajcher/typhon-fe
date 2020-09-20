@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import NewStep from './NewPilotSelectStep';
 import NewPilotConfirm from './NewPilotConfirm';
 import './NewPilotFlow.css';
+import { useRoute } from '../hooks/useRoute';
 
 export default function NewPilotFlow() {
   const [pilotInfo, setPilotInfo] = useState({});
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
+
+  const createPilot = useRoute('/pilot', 'post');
 
   const steps = [
     { field: 'species', label: 'Choose a Species' },
@@ -38,9 +41,11 @@ export default function NewPilotFlow() {
   }
 
   function finish(name) {
-    pilotInfo.name = name;
+    const sendInfo = Object.keys(pilotInfo).reduce((a, c) => { a[c] = pilotInfo[c].id; return a; }, {});
+    sendInfo.name = name;
     console.log("sending data to server");
-    console.log(pilotInfo);
+    console.log(sendInfo);
+    createPilot(res => console.log(res), sendInfo);
   }
 
   return <div>

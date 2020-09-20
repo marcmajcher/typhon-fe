@@ -87,6 +87,6 @@ describe('New User Flow', () => {
   it('Should require a name to proceed', () => {
     cy.get('main').should('not.contain', 'Looks Great');
     cy.get('input[name="pilot-name').type("My Pilot");
-    cy.contains('Looks Great');
+    cy.contains('Looks Great').click();
   });
 });

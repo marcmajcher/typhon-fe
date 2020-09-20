@@ -10,6 +10,9 @@ export function logOutUser() {
 export function setGameState(state) {
   return { type: 'SET_GAME_STATE', payload: state };
 }
+export function setPilotInfo(info) {
+  return {type: 'SET_PILOT_INFO', payload: info}
+}
 export function setUserInfo(userInfo) {
   return { type: 'SET_USER_INFO', payload: userInfo };
 }

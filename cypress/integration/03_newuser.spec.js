@@ -89,5 +89,6 @@ describe('New User Flow', () => {
     cy.get('main').should('not.contain', 'Looks Great');
     cy.get('input[name="pilot-name').type("My Pilot");
     cy.contains('Looks Great').click();
+    cy.contains('Welcome to Typhon Station, My Pilot');
   });
 });

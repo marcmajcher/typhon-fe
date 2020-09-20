@@ -4,7 +4,7 @@ const tokenKey = '_t';
 const defaultStore = {
   appId:
     '240075575983-v6lk702qaapea93k2641oh4fg6deeh8s.apps.googleusercontent.com',
-  debug: false,
+  debug: true,
   endpoint:
     process.env.NODE_ENV === 'production'
       ? 'https://my-app-backend.herokuapp.com'
@@ -36,6 +36,8 @@ function reducer(state = defaultStore, action) {
       };
     case 'SET_GAME_STATE':
       return { ...state, gameState: action.payload };
+    case 'SET_PILOT_INFO':
+      return { ...state, pilotInfo: action.payload };
     case 'SET_USER_INFO':
       return { ...state, userInfo: action.payload, loggedIn: true };
     default:

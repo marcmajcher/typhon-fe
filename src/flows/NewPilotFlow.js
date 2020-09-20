@@ -3,12 +3,14 @@ import NewStep from './NewPilotSelectStep';
 import NewPilotConfirm from './NewPilotConfirm';
 import './NewPilotFlow.css';
 import { useRoute } from '../hooks/useRoute';
+import { setPilotInfo as dispatchPilotInfo } from '../actions';
+import { useDispatch } from 'react-redux';
 
 export default function NewPilotFlow() {
   const [pilotInfo, setPilotInfo] = useState({});
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
-
+  const dispatch = useDispatch();
   const createPilot = useRoute('/pilot', 'post');
 
   const steps = [
@@ -43,7 +45,7 @@ export default function NewPilotFlow() {
   function finish(name) {
     const sendInfo = Object.keys(pilotInfo).reduce((a, c) => { a[c] = pilotInfo[c].id; return a; }, {});
     sendInfo.name = name;
-    createPilot(sendInfo).then(res => console.log(res));
+    createPilot(sendInfo).then(res => dispatch(dispatchPilotInfo(res)));
   }
 
   return <div>

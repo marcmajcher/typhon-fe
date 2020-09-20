@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import LoginButton from './LoginButton';
-import './TopNav.css';
+import './TopNav.scss';
 import { useRoute } from '../hooks/useRoute';
 
 export default function TopNav() {

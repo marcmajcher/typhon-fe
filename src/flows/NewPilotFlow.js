@@ -5,8 +5,10 @@ import './NewPilotFlow.css';
 import { useRoute } from '../hooks/useRoute';
 import { setPilotInfo as dispatchPilotInfo } from '../actions';
 import { useDispatch } from 'react-redux';
+import useFlick from '../hooks/useFlick';
 
 export default function NewPilotFlow() {
+  const flick = useFlick();
   const [pilotInfo, setPilotInfo] = useState({});
   const [step, setStep] = useState(0);
   const [done, setDone] = useState(false);
@@ -48,7 +50,7 @@ export default function NewPilotFlow() {
     createPilot(sendInfo).then(res => dispatch(dispatchPilotInfo(res)));
   }
 
-  return <div>
+  return flick && <div>
     {done ?
       <NewPilotConfirm pilotInfo={pilotInfo} steps={steps}
         goBack={() => setDone(false)} finish={finish} /> :

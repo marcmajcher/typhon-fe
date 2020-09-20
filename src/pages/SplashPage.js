@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useFlick from '../hooks/useFlick';
 import './SplashPage.scss';
 
 export default function SplashPage() {
+  const flick = useFlick();
 
-  return <div className="page-splash">
+  return flick && <div className="page-splash">
     <h1>Welcome to Typhon Station</h1>
     <h3>Log In with your Google account up there!</h3>
     <div className="container">

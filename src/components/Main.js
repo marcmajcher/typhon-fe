@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Main.css';
+import './Main.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from '../pages/HomePage';
@@ -7,6 +7,8 @@ import NewPilotFlow from '../flows/NewPilotFlow';
 import SplashPage from '../pages/SplashPage';
 import TestConsole from './TestConsole';
 import { useRoute } from '../hooks/useRoute';
+
+// import Loading from './Loading'
 
 import { setPilotInfo } from '../actions';
 

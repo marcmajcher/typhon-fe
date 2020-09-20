@@ -1,0 +1,14 @@
+@import "../styles/base.scss";
+
+main {
+  padding: 1em;
+}
+
+.pi {
+  bottom: 4px;
+  color: $color-base;
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  right: 4px;
+}

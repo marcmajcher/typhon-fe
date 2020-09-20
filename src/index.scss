@@ -1,0 +1,10 @@
+@import './styles/base.scss';
+
+body {
+  background-color: black;
+  color: $color-base;
+  font-family: $font-base;
+  margin: 0;
+  padding: 1em;
+}
+

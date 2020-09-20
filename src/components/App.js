@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
-import { checkToken, logOutUser, setUserInfo } from './actions';
+import './App.scss';
+import { checkToken, logOutUser, setUserInfo } from '../actions';
 import axios from 'axios';
 
-import TopNav from './components/TopNav';
-import Main from './components/Main';
+import TopNav from './TopNav';
+import Main from './Main';
+import useFlick from '../hooks/useFlick';
 
 export default function App() {
+  const flick = useFlick(100);
   const endpoint = useSelector((s) => s.endpoint);
   const token = useSelector((s) => s.token);
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ export default function App() {
   }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="App">
+    flick && <div className="App">
       <TopNav />
       <Main />
     </div>

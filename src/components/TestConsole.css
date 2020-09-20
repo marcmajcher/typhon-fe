@@ -4,7 +4,7 @@
   border-radius: 1em;
   height: 85vh;
   left: 2vw;
-  overflow: hidden;
+  overflow: scroll;
   padding: 1em;
   position: absolute;
   top: 6em;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRoute } from '../hooks/useRoute';
 import CardSpecies from './CardSpecies';
+import CardOccupation from './CardOccupation';
 
 export default function NewPilotSelectStep(props) {
   const { step, field, label } = props.step;
@@ -12,19 +13,25 @@ export default function NewPilotSelectStep(props) {
   const route = `/data/${field}${field !== 'species' ? `/${pilotInfo.species.id}` : ''}`;
   const dataRoute = useRoute(route);
 
-  const Card = CardSpecies;
-
+  
   useEffect(() => {
     pilotInfo[field] && setChoiceId(parseInt(pilotInfo[field].id));
     dataRoute().then(res => setData(res));
   }, [field]); // eslint-disable-line react-hooks/exhaustive-deps
-
+  
   function handleChange(e) {
     const id = parseInt(e.target.value);
     setChoiceId(id);
     setInfo({ field, id, name: data.find(e => e.id === id).name });
   }
+  
+  const cards = {
+    species: CardSpecies,
+    occupation: CardOccupation,
+  }
 
+  const Card = cards[field] || CardSpecies;
+  
   return <div className="center">
     <h3 className="label">{label}</h3>
     {data.map(e => <Card key={`${e.id}-${e.name}`} info={e}

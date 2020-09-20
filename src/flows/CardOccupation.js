@@ -4,17 +4,17 @@ import getImage from '../lib/getImage';
 export default function CardOccupation(props) {
   const { info, choiceId, handleChange, field } = props;
 
-  console.log(info);
-  
-  return <div className="species-card">
+
+  return <div className="card occupation-card">
     <input className="card-radio" id={info.name} type="radio" name={field} value={info.id}
       onChange={handleChange} checked={choiceId === info.id} />
     <label htmlFor={info.name}>
-      {getImage(info.name.toLowerCase())}
+      {getImage(info.attitude)}
+      {getImage(info.interests)}
+      {getImage(info.structure)}
+      {getImage(info.tactics)}
       <h3>{info.name}</h3>
-      <p>
-        {info.description}
-      </p>
     </label>
+      <p>{info.description}</p>
   </div>;
 }

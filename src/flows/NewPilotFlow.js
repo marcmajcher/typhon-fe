@@ -57,6 +57,7 @@ export default function NewPilotFlow() {
       <>
         <h2 className="trail">PILOT::{trail || '[NONE]'}</h2>
         <h2 className="header">Looks like you're new here, friend. Let's find you a pilot.</h2>
+        
         <NewStep step={{ step, ...steps[step] }} pilotInfo={pilotInfo}
           nextStep={step < steps.length - 1 ? nextStep : () => setDone(true)}
           previousStep={previousStep} setInfo={setInfo} />

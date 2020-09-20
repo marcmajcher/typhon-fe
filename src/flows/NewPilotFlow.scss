@@ -22,7 +22,7 @@ li {
   border-bottom: 1px solid $color-base;
 }
 
-.species-card {
+.card {
   background-color: $color-base;
   color: black;
   display: inline-flex;
@@ -66,5 +66,19 @@ li {
     color: black;
     margin: 0;
     padding: 4px;
+  }
+}
+
+.occupation-card {
+  h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 4px;
+    height: 4rem;
+  }
+  img {
+    width: 85px;
+    height: 85px;
+    padding: 8px;
   }
 }

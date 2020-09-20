@@ -28,7 +28,7 @@ const images = {
   detached: 'split-arrows',
   focused: 'targeted',
   casual: 'flip-flops',
-  martial: 'swordswoman',
+  martial: 'swordwoman',
   social: 'team-upgrade',
   economic: 'take-my-money',
   hedonic: 'party-popper',
@@ -52,6 +52,6 @@ const images = {
 }
 
 export default function getImage(key) {
-  const imgPath = `/img/${images[key]}.svg`;
-  return <img alt={key} src={imgPath} />
+  const imgPath = `/img/${images[key.toLowerCase()]}.svg`;
+  return <img alt={key} title={key} src={imgPath} />
 }

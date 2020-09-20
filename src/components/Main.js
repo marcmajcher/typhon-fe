@@ -11,22 +11,31 @@ import { useRoute } from '../hooks/useRoute';
 // import Loading from './Loading'
 
 import { setPilotInfo } from '../actions';
+import NewShipFlow from '../flows/NewShipFlow';
 
 export default function Main(props) {
   const dispatch = useDispatch();
   const [consoleHidden, setConsoleHidden] = useState(true);
   const userInfo = useSelector(s => s.userInfo);
+  const pilotInfo = useSelector(s => s.pilotInfo);
+  const shipInfo = useSelector(s => s.shipInfo);
   const loggedIn = !!userInfo;
-  const hasPilot = !!useSelector(s => s.pilotInfo);
+  const hasPilot = !!pilotInfo;
+  const hasShip = !!shipInfo;
   const getPilot = useRoute('/pilot');
+
+  console.log('Pilot Info:', pilotInfo);
 
   useEffect(() => {
     loggedIn && getPilot().then(res => dispatch(setPilotInfo(res)));
-  }, [loggedIn]); // eslint-disable-line
+  }, [loggedIn]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <main>
     {loggedIn ?
-      hasPilot ? <HomePage /> : <NewPilotFlow />
+      hasPilot ?
+        hasShip ? <HomePage />
+          : <NewShipFlow />
+        : <NewPilotFlow />
       : <SplashPage />}
     {consoleHidden ? '' : <TestConsole />}
     {userInfo && userInfo.role === 'admin' && <span className="pi" onClick={() => setConsoleHidden(!consoleHidden)}>π</span>}

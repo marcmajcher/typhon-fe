@@ -11,7 +11,6 @@ export default function LoginButton() {
   const loggedIn = useSelector((s) => s.loggedIn);
 
   function handleLogin(info) {
-    console.log('handleLogin info:',info)
     axios
       .post(`${endpoint}/users/auth`, {
         id_token: info.tokenObj.id_token,

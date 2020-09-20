@@ -1,28 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import { useRoute } from '../hooks/useRoute';
 
 export default function NewPilotSelectStep(props) {
-  const [choiceId, setChoiceId] = useState(0);
+  const { step, field, label } = props.step;
+  const { pilotInfo, previousStep, nextStep, setInfo } = props;
 
-  const { step, infoField, dataField, label } = props.step;
-  const { data, pilotInfo, previousStep, nextStep, setInfo } = props;
+  const [choiceId, setChoiceId] = useState(0);
+  const [data, setData] = useState([]);
+
+  const route = `/data/${field}${field !== 'species' ? `/${pilotInfo.species.id}` : ''}`;
+  const dataRoute = useRoute(route);
 
   useEffect(() => {
-    pilotInfo[infoField] && setChoiceId(parseInt(pilotInfo[infoField]));
-  }, [pilotInfo, infoField]);
+    pilotInfo[field] && setChoiceId(parseInt(pilotInfo[field].id));
+    dataRoute(res => setData(res));
+  }, [field]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleChange(e) {
-    setChoiceId(parseInt(e.target.value));
-    setInfo(infoField, e.target.value);
+    const id = parseInt(e.target.value);
+    setChoiceId(id);
+    setInfo({ field, id, name: data.find(e => e.id === id).name });
   }
-
-  const choices = dataField === 'species' ? data.species : data.bySpecies(dataField, pilotInfo.species);
 
   return <div>
     <h4>{label}</h4>
     <ul>
-      {choices.map(e => <li key={`${e.id}-${e.name}`}>
+      {data.map(e => <li key={`${e.id}-${e.name}`}>
         <label htmlFor={e.name}>
-          <input id={e.name} type="radio" name={infoField} value={e.id} onChange={handleChange} checked={choiceId === e.id} />
+          <input id={e.name} type="radio" name={field} value={e.id} onChange={handleChange} checked={choiceId === e.id} />
           {' '}{e.name}
         </label>
       </li>)}

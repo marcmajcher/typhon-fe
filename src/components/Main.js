@@ -26,7 +26,6 @@ export default function Main(props) {
   // }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function toggleConsole() {
-    console.log("alfkasdofihja");
     setConsoleHidden(!consoleHidden);
   };
 

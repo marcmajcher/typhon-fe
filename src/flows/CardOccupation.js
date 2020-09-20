@@ -14,7 +14,7 @@ export default function CardOccupation(props) {
       {getImage(info.structure)}
       {getImage(info.tactics)}
       <h3>{info.name}</h3>
-    </label>
       <p>{info.description}</p>
+    </label>
   </div>;
 }

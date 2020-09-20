@@ -1,24 +1,15 @@
 import React from 'react';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
-import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { logInUser, logOutUser } from '../actions';
+import { logOutUser } from '../actions';
+import { useLogin } from '../hooks/useLogin';
 
 export default function LoginButton() {
+  const handleLogin = useLogin();
   const dispatch = useDispatch();
+  
   const appId = useSelector((s) => s.appId);
-  const endpoint = useSelector((s) => s.endpoint);
   const loggedIn = useSelector((s) => s.loggedIn);
-
-  function handleLogin(info) {
-    axios
-      .post(`${endpoint}/users/auth`, {
-        id_token: info.tokenObj.id_token,
-        userData: info.profileObj,
-      })
-      .then((res) => dispatch(logInUser(info.profileObj, res.data.token)))
-      .catch((err) => console.error(err));
-  }
 
   return (
     <div className="button-login">

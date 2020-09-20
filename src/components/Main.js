@@ -9,31 +9,15 @@ import TestConsole from './TestConsole';
 
 export default function Main(props) {
   const [consoleHidden, setConsoleHidden] = useState(true);
-  const loggedIn = !!useSelector((s) => s.userInfo);
+  const userInfo = useSelector(s => s.userInfo);
+  const loggedIn = !!userInfo;
   const hasPilot = !!useSelector(s => s.pilotInfo);
-
-  // useEffect(() => {
-  //   if (token) {
-  //     const authHeaders = {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`
-  //       }
-  //     };
-  //     axios(`${endpoint}/users`, authHeaders).then(res => {
-  //       setUserList(res.data);
-  //     });
-  //   }
-  // }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  function toggleConsole() {
-    setConsoleHidden(!consoleHidden);
-  };
 
   return <main>
     {loggedIn ?
       hasPilot ? <HomePage /> : <NewPilotFlow />
       : <SplashPage />}
     {consoleHidden ? '' : <TestConsole />}
-    <span className="pi" onClick={toggleConsole}>π</span>
+    {userInfo && userInfo.role === 'admin' && <span className="pi" onClick={() => setConsoleHidden(!consoleHidden)}>π</span>}
   </main>;
 }

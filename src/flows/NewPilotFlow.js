@@ -23,7 +23,7 @@ export default function NewPilotFlow() {
     .join(' :: ');
 
   function setInfo(data) {
-    setPilotInfo({ ...pilotInfo, [data.field]: {id: data.id, name: data.name} });
+    setPilotInfo({ ...pilotInfo, [data.field]: { id: data.id, name: data.name } });
   }
 
   function nextStep() {
@@ -37,8 +37,10 @@ export default function NewPilotFlow() {
     setStep(Math.max(step - 1, 0));
   }
 
-  function finish() {
+  function finish(name) {
+    pilotInfo.name = name;
     console.log("sending data to server");
+    console.log(pilotInfo);
   }
 
   return <div>
@@ -49,7 +51,7 @@ export default function NewPilotFlow() {
         <h2>Looks like you're new here. Let's get you a new pilot.</h2>
         <div><b>:: {trail}</b></div>
         <NewStep step={{ step, ...steps[step] }} pilotInfo={pilotInfo}
-          nextStep={step < steps.length - 1 ? nextStep : () => setDone(true)} 
+          nextStep={step < steps.length - 1 ? nextStep : () => setDone(true)}
           previousStep={previousStep} setInfo={setInfo} />
       </>}
   </div>;

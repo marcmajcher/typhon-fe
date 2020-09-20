@@ -15,7 +15,7 @@ export default function App() {
   useEffect(() => {
     if (token) {
       axios
-        .post(`${endpoint}/users/verify`, { token })
+        .post(`${endpoint}/user/verify`, { token })
         .then((response) => dispatch(setUserInfo(response.data)))
         .catch(() => dispatch(logOutUser()));
     }
@@ -23,7 +23,6 @@ export default function App() {
       dispatch(checkToken());
     }
   }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
-
 
   return (
     <div className="App">

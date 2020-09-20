@@ -69,7 +69,7 @@ describe('New User Flow', () => {
     cy.contains('Next Step').click();
     cy.get('[type="radio"]').first().check();
     cy.contains('Next Step').click();
-    cy.contains('How does this look?');
+    cy.contains(`What's your name, pilot?`);
     cy.contains('SPECIES: Nahmra');
     cy.contains('KEEPSAKE: Rock');
   });
@@ -82,6 +82,11 @@ describe('New User Flow', () => {
     cy.contains('Next Step').click();
     cy.contains('SPECIES: Nahmra');
     cy.contains('KEEPSAKE: Doll');
-    cy.contains('Looks Great').click()
+  });
+
+  it('Should require a name to proceed', () => {
+    cy.get('main').should('not.contain', 'Looks Great');
+    cy.get('input[name="pilot-name').type("My Pilot");
+    cy.contains('Looks Great');
   });
 });

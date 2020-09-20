@@ -8,8 +8,10 @@ describe('New User Flow', () => {
         win.localStorage.setItem('_t', testToken);
       }
     });
-    cy.contains("Looks like you're new here");
+    cy.get('#clearme').should('contain', '.');
     cy.get('#clearme').click();
+    cy.visit(url);
+    cy.contains("Looks like you're new here");
   });
 
   it('Should let you choose a species and go to the next step', () => {

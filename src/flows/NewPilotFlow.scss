@@ -1,0 +1,22 @@
+@import "../styles/base.scss";
+
+li {
+  list-style: none;
+}
+
+.trail {
+  font-size: 2em;
+  text-shadow: 0 0 2px $color-base, 0 0 2px $color-base;
+}
+
+.header {
+  font-size: 2em;
+}
+
+.label {
+  font-size: 2em;
+  font-weight: bold;
+  background-color: $color-darker;
+  border-top: 1px solid $color-base;
+  border-bottom: 1px solid $color-base;
+}

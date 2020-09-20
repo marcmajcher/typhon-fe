@@ -4,7 +4,6 @@ const tokenKey = '_t';
 const defaultStore = {
   appId:
     '240075575983-v6lk702qaapea93k2641oh4fg6deeh8s.apps.googleusercontent.com',
-  debug: true,
   endpoint:
     process.env.NODE_ENV === 'production'
       ? 'https://my-app-backend.herokuapp.com'
@@ -17,7 +16,7 @@ const defaultStore = {
 };
 
 function reducer(state = defaultStore, action) {
-  if (state.debug) { console.log("DISPATCHED:", action.type, action.payload); }
+  // console.log("DISPATCHED:", action.type, action.payload);
   switch (action.type) {
     case 'CHECK_TOKEN':
       const localToken = localStorage.getItem(tokenKey);

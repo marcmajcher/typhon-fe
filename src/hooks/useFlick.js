@@ -6,7 +6,7 @@ export default function useFlick(delay = 300) {
   useEffect(() => {
     const tid = setTimeout(() => setShow(true), delay);
     return () => { clearTimeout(tid); };
-  }, []);
+  }, []); // eslint-disable-line
 
   return show;
 }

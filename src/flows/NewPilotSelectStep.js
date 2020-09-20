@@ -23,7 +23,7 @@ export default function NewPilotSelectStep(props) {
   }
 
   return <div>
-    <h4>{label}</h4>
+    <h3 className="label">{label}</h3>
     <ul>
       {data.map(e => <li key={`${e.id}-${e.name}`}>
         <label htmlFor={e.name}>

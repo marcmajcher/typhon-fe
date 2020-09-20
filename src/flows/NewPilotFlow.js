@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NewStep from './NewPilotSelectStep';
 import NewPilotConfirm from './NewPilotConfirm';
-import './NewPilotFlow.css';
+import './NewPilotFlow.scss';
 import { useRoute } from '../hooks/useRoute';
 import { setPilotInfo as dispatchPilotInfo } from '../actions';
 import { useDispatch } from 'react-redux';
@@ -55,8 +55,8 @@ export default function NewPilotFlow() {
       <NewPilotConfirm pilotInfo={pilotInfo} steps={steps}
         goBack={() => setDone(false)} finish={finish} /> :
       <>
-        <h2>Looks like you're new here. Let's get you a new pilot.</h2>
-        <div><b>:: {trail}</b></div>
+        <h2 className="trail">PILOT:: {trail || '[NONE]'}</h2>
+        <h2 className="header">Looks like you're new here, friend. Let's find you a pilot.</h2>
         <NewStep step={{ step, ...steps[step] }} pilotInfo={pilotInfo}
           nextStep={step < steps.length - 1 ? nextStep : () => setDone(true)}
           previousStep={previousStep} setInfo={setInfo} />

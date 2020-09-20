@@ -1,5 +1,5 @@
 const testToken = Cypress.env('TEST_TOKEN');
-const url = 'http://localhost:3030/';
+const url = 'http://localhost:3030';
 
 describe('New User Flow', () => {
   it('Should show the new user flow when first logged in', () => {
@@ -9,6 +9,7 @@ describe('New User Flow', () => {
       }
     });
     cy.contains("Looks like you're new here");
+    cy.get('#clearme').click();
   });
 
   it('Should let you choose a species and go to the next step', () => {

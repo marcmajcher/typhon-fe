@@ -1,3 +1,3 @@
 # TODO
 
-* adjust nav title to fit smaller screens
+* loading spinner for api hits

@@ -6,7 +6,7 @@ export function useRoute(route, method = 'get') {
   const endpoint = useSelector(s => s.endpoint);
 
   if (token) {
-    return (cb, data) => axios({
+    return (data) => new Promise(resolve => axios({
       method,
       data,
       url: `${endpoint}${route}`,
@@ -14,7 +14,7 @@ export function useRoute(route, method = 'get') {
         Authorization: `Bearer ${token}`
       },
     })
-      .then(res => cb(res.data))
-      .catch(err => console.log(`Error: ${err}`));
+      .then(res => resolve(res.data))
+      .catch(err => console.log(`Error: ${err}`)));
   }
 }

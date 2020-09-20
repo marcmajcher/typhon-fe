@@ -43,9 +43,7 @@ export default function NewPilotFlow() {
   function finish(name) {
     const sendInfo = Object.keys(pilotInfo).reduce((a, c) => { a[c] = pilotInfo[c].id; return a; }, {});
     sendInfo.name = name;
-    console.log("sending data to server");
-    console.log(sendInfo);
-    createPilot(res => console.log(res), sendInfo);
+    createPilot(sendInfo).then(res => console.log(res));
   }
 
   return <div>

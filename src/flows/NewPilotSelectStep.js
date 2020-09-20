@@ -13,7 +13,7 @@ export default function NewPilotSelectStep(props) {
 
   useEffect(() => {
     pilotInfo[field] && setChoiceId(parseInt(pilotInfo[field].id));
-    dataRoute(res => setData(res));
+    dataRoute().then(res => setData(res));
   }, [field]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleChange(e) {

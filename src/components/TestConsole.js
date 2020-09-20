@@ -13,8 +13,8 @@ export default function TestConsole() {
   const occRoute = useRoute('/data/occupation/1');
 
   useEffect(() => {
-    speciesRoute(s => setSpecies(s));
-    occRoute(o => setOccupations(o));
+    speciesRoute().then(s => setSpecies(s));
+    occRoute().then(o => setOccupations(o));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <div className="console">

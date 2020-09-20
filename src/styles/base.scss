@@ -24,5 +24,10 @@ $color-darkest: #0f0f17;
 $font-base: "Source Code Pro", monospace;
 
 .hidden {
-  display: none;
+  visibility: hidden;
+}
+
+
+.center {
+  text-align: center;
 }

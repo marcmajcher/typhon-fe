@@ -27,7 +27,7 @@ export default function NewPilotFlow() {
   const trail = steps
     .filter(e => pilotInfo.hasOwnProperty(e.field))
     .map(e => pilotInfo[e.field].name)
-    .join(' :: ');
+    .join('::');
 
   function setInfo(data) {
     setPilotInfo({ ...pilotInfo, [data.field]: { id: data.id, name: data.name } });
@@ -55,7 +55,7 @@ export default function NewPilotFlow() {
       <NewPilotConfirm pilotInfo={pilotInfo} steps={steps}
         goBack={() => setDone(false)} finish={finish} /> :
       <>
-        <h2 className="trail">PILOT:: {trail || '[NONE]'}</h2>
+        <h2 className="trail">PILOT::{trail || '[NONE]'}</h2>
         <h2 className="header">Looks like you're new here, friend. Let's find you a pilot.</h2>
         <NewStep step={{ step, ...steps[step] }} pilotInfo={pilotInfo}
           nextStep={step < steps.length - 1 ? nextStep : () => setDone(true)}

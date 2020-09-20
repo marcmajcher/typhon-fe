@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRoute } from '../hooks/useRoute';
+import CardSpecies from './CardSpecies';
 
 export default function NewPilotSelectStep(props) {
   const { step, field, label } = props.step;
@@ -10,6 +11,8 @@ export default function NewPilotSelectStep(props) {
 
   const route = `/data/${field}${field !== 'species' ? `/${pilotInfo.species.id}` : ''}`;
   const dataRoute = useRoute(route);
+
+  const Card = CardSpecies;
 
   useEffect(() => {
     pilotInfo[field] && setChoiceId(parseInt(pilotInfo[field].id));
@@ -22,19 +25,14 @@ export default function NewPilotSelectStep(props) {
     setInfo({ field, id, name: data.find(e => e.id === id).name });
   }
 
-  return <div>
+  return <div className="center">
     <h3 className="label">{label}</h3>
-    <ul>
-      {data.map(e => <li key={`${e.id}-${e.name}`}>
-        <label htmlFor={e.name}>
-          <input id={e.name} type="radio" name={field} value={e.id} onChange={handleChange} checked={choiceId === e.id} />
-          {' '}{e.name}
-        </label>
-      </li>)}
-    </ul>
+    {data.map(e => <Card key={`${e.id}-${e.name}`} info={e}
+      handleChange={handleChange} choiceId={choiceId} field={field} />)}
     <div>
-      {step !== 0 ? <button onClick={previousStep}>&lt; Previous Step</button> : ''}
-      {choiceId !== 0 ? <button onClick={() => { nextStep(); setChoiceId(0); }}>Next Step &gt;</button> : ''}
+
+      <button className={step === 0 ? 'hidden' : ''} onClick={previousStep}>&lt; Previous Step</button>{' '}
+      <button className={choiceId === 0 ? 'hidden' : ''} onClick={() => { nextStep(); setChoiceId(0); }}>Next Step &gt;</button>
     </div>
   </div>;
 }

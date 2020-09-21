@@ -3,14 +3,12 @@ import getImage from '../lib/getImage';
 import './CardNewShip.scss';
 
 export default function CardNewShip(props) {
-
   const { ship, handleChange, choiceId } = props;
-  console.log(ship);
+
   return <div className="card default-card container ship-card">
-    <input className="card-radio" type="radio" id={ship.name} name="ship" value="ship.id"
+    <input className="card-radio" type="radio" id={ship.name} name="ship" value={ship.id}
       onChange={handleChange} checked={choiceId === ship.id} />
     <label htmlFor={ship.name} className="row">
-
       <div className="eight columns ship-name">
         <h3>{ship.name}</h3>
         <p className="ship-origin"> {getImage(ship.species)}{ship.origin}</p>

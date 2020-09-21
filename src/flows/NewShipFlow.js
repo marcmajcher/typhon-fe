@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useRoute } from '../hooks/useRoute';
-import CardNewShip from './CardNewShip'
+import CardNewShip from './CardNewShip';
 
 export default function NewShipFlow() {
   const pilotInfo = useSelector(s => s.pilotInfo);
@@ -15,15 +15,12 @@ export default function NewShipFlow() {
     shipRoute().then(data => setShipInfo(data));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  function handleChange() {
-
+  function handleChange(e) {
+    setChoiceId(parseInt(e.target.value));
   }
 
-  return <div>
-    <h2 className="header">Looks like you need a new ship. I've got just the thing:</h2>
-
+  return <div className="center">
+    <h2 className="header">Looks like you need a new ship! <button className={choiceId === 0 ? 'hidden' : ''}>GET IT!</button></h2>
     {shipInfo.map(ship => <CardNewShip key={ship.id} ship={ship} handleChange={handleChange} choiceId={choiceId} />)}
-
-
   </div>;
 }

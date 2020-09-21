@@ -24,8 +24,6 @@ export default function Main(props) {
   const hasShip = !!shipInfo;
   const getPilot = useRoute('/pilot');
 
-  console.log('Pilot Info:', pilotInfo);
-
   useEffect(() => {
     loggedIn && getPilot().then(res => dispatch(setPilotInfo(res)));
   }, [loggedIn]); // eslint-disable-line react-hooks/exhaustive-deps

@@ -45,22 +45,6 @@ li {
     display: none;
   }
 
-  input[type="radio"].card-radio + label {
-    border: 2px solid $color-darkest;
-    margin: 0;
-  }
-
-  input[type="radio"].card-radio:checked + label {
-    background-color: black;
-    border: 2px solid $color-base;
-    border-bottom: 0;
-    color: $color-base;
-
-    img {
-      filter: brightness(1);
-    }
-  }
-
   p {
     background-color: $color-base;
     color: black;
@@ -81,13 +65,43 @@ li {
     margin: 0;
     padding: 8px;
   }
+}
+
+.species-card {
+  input[type="radio"].card-radio + label {
+    border: 2px solid $color-darkest;
+    margin: 0;
+  }
 
   input[type="radio"].card-radio:checked + label {
-    border-bottom: 2px solid $color-base; 
+    background-color: black;
+    border: 2px solid $color-base;
+    border-bottom: 2px solid $color-base;
+    color: $color-base;
+
+    img {
+      filter: brightness(1);
+    }
   }
 }
 
 .occupation-card {
+  input[type="radio"].card-radio + label {
+    border: 2px solid $color-darkest;
+    margin: 0;
+  }
+
+  input[type="radio"].card-radio:checked + label {
+    background-color: black;
+    border: 2px solid $color-base;
+    border-bottom: 2px solid $color-base;
+    color: $color-base;
+
+    img {
+      filter: brightness(1);
+    }
+  }
+
   h3 {
     display: flex;
     flex-direction: column;

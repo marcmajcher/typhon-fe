@@ -37,6 +37,8 @@ function reducer(state = defaultStore, action) {
       return { ...state, gameState: action.payload };
     case 'SET_PILOT_INFO':
       return { ...state, pilotInfo: action.payload };
+    case 'SET_SHIP_INFO':
+      return { ...state, shipInfo: action.payload };
     case 'SET_USER_INFO':
       return { ...state, userInfo: action.payload, loggedIn: true };
     default:

@@ -2,7 +2,6 @@
 
 div.ship-card {
   margin-bottom: 2em;
-  // height: 175px;
 
   p.ship-origin {
     text-align: left;
@@ -20,7 +19,7 @@ div.ship-card {
   h3 {
     border-bottom: 2px solid black;
     font-size: 4em;
-    height: 1.75em;
+    height: 105px;
     font-weight: bold;
     text-transform: uppercase;
     display: flex;
@@ -32,7 +31,6 @@ div.ship-card {
     display: flex;
     align-items: center;
     height: 1.75em;
-    // padding-right: 2em;
   }
 
   .ship-info > div {
@@ -63,4 +61,20 @@ div.ship-card {
   .defense {
     padding-right: 0;
   }
+}
+
+input[type="radio"].card-radio + label {
+  border: 2px solid $color-darkest;
+  margin: 0;
+}
+
+input[type="radio"].card-radio:checked + label div.ship-name {
+  background-color: black;
+  border: 2px solid $color-base;
+  border-bottom: 2px solid $color-base;
+  color: $color-base;
+}
+input[type="radio"].card-radio:checked + label div.ship-name h3 {
+  height: 102px;
+  margin-bottom: 0;
 }

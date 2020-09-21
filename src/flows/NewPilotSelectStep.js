@@ -36,11 +36,6 @@ export default function NewPilotSelectStep(props) {
 
   const Card = cards[cardType] || CardDefault;
 
-  // console.log('---------------');
-  // console.log(field);
-  // console.log(cardType)
-  // console.log(data);
-
   return (field === cardType) && <div className="center"> 
     <h3 className="label">{label}</h3>
 

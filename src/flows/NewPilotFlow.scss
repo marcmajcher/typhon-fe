@@ -65,6 +65,12 @@ li {
     margin: 0;
     padding: 8px;
   }
+
+  input[type="radio"].card-radio:checked + label {
+    background-color: black;
+    border: 2px solid $color-base;
+    color: $color-base;
+  }
 }
 
 .species-card {

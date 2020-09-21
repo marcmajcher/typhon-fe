@@ -4,3 +4,4 @@
 * name generator for species
 * appearance generator for species
 * keepsake generator
+* layout better ship info card

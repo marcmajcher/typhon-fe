@@ -1,0 +1,66 @@
+@import "../styles/base.scss";
+
+div.ship-card {
+  margin-bottom: 2em;
+  // height: 175px;
+
+  p.ship-origin {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    font-size: 1.4em;
+
+    img {
+      margin: 8px 4px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  h3 {
+    border-bottom: 2px solid black;
+    font-size: 4em;
+    height: 1.75em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ship-name p {
+    display: flex;
+    align-items: center;
+    height: 1.75em;
+    // padding-right: 2em;
+  }
+
+  .ship-info > div {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid blue;
+  }
+
+  .ship-info {
+    background-color: $color-base;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    h5 {
+      margin: 0;
+    }
+  }
+  .attack {
+    border-left: 2px solid black;
+    padding-left: 4em;
+    margin-left: 0;
+  }
+  .defense {
+    padding-right: 0;
+  }
+}

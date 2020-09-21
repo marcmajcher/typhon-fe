@@ -13,7 +13,7 @@ const images = {
   junctuarat: 'crab',
   ssvarti: 'beehive',
   haren: 'sand-castle',
-  pholaren: 'armadillo',
+  pholarmin: 'armadillo',
   qillanti: 'kenku-head',
   loptrocha: 'squid-head',
   thelgen: 'grasping-slug',

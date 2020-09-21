@@ -14,6 +14,6 @@ export default function TopNav() {
       <img className="user-image" src={userInfo.imageUrl} alt="user" />
       : ''}
     <LoginButton />
-    <span id="clearme" onClick={() => clearMe().then(res => console.log(res))}>.</span>
+    <span id="clearme" onClick={() => clearMe().then(res => console.info(res))}>.</span>
   </nav>;
 }

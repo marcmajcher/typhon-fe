@@ -15,6 +15,6 @@ export function useRoute(route, method = 'get') {
       },
     })
       .then(res => resolve(res.data))
-      .catch(err => console.log(`Error: ${err}`)));
+      .catch(err => console.error(`Error: ${err}`)));
   }
 }

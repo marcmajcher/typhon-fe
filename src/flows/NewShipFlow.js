@@ -10,7 +10,8 @@ export default function NewShipFlow() {
   const [choiceId, setChoiceId] = useState(0);
   const [shipInfo, setShipData] = useState([]);
 
-  const shipDataRoute = useRoute(`/data/ships/${pilotInfo.species}`);
+  console.log(pilotInfo)
+  const shipDataRoute = useRoute(`/data/ships/${pilotInfo.speciesId || pilotInfo.species}`); // should be id, but “¯\_(ツ)_/¯“
   const newShipRoute = useRoute('/ship', 'post');
 
   useEffect(() => {

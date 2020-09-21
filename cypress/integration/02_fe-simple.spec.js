@@ -1,4 +1,3 @@
-
 const testToken = Cypress.env('TEST_TOKEN');
 const url = 'http://localhost:3030/';
 

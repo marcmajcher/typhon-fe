@@ -17,16 +17,17 @@ export default function Main(props) {
   const userInfo = useSelector(s => s.userInfo);
   const pilotInfo = useSelector(s => s.pilotInfo);
   const shipInfo = useSelector(s => s.shipInfo);
+  const getInfo = useRoute('/user/info');
+
   const loggedIn = !!userInfo;
   const hasPilot = !!pilotInfo;
   const hasShip = !!shipInfo;
-  const getInfo = useRoute('/user/info');
 
   useEffect(() => {
-    loggedIn && hasPilot && hasShip && getInfo().then(res => {
-      console.log("GOT INFO!", res);
-      dispatch(setPilotInfo(res.pilot));
-      dispatch(setShipInfo(res.ship));
+    loggedIn && getInfo().then(res => {
+      console.log("GETTIN IN", res)
+      res.pilot && dispatch(setPilotInfo(res.pilot));
+      res.ship && dispatch(setShipInfo(res.ship));
     });
   }, [loggedIn, hasPilot, hasShip]); // eslint-disable-line react-hooks/exhaustive-deps
 

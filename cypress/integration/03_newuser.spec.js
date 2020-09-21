@@ -50,7 +50,7 @@ describe('New User Flow', () => {
     cy.contains(str.newPilot);
   });
 
-  it('Should let you choose a species and go to the next step', () => {
+  it('Should let you choose a thing and go through all the steps', () => {
     cy.contains(str.chooseSpecies);
     cy.get('label').first().click();
     cy.contains(getStep(1));
@@ -129,10 +129,19 @@ describe('New User Flow', () => {
     cy.contains(str.pilotConfirm).click();
     cy.contains(str.newShip);
   });
-  
+
+  it('Should give you the ship select screen after you leave and come back', () => {
+    cy.visit(url, {
+      onBeforeLoad(win) {
+        win.localStorage.setItem('_t', testToken);
+      }
+    });
+    cy.contains(str.newShip);
+  });
+
   it('Should let you get a new ship', () => {
     cy.contains(str.shipType).click();
     cy.contains(str.getShip).click();
     cy.contains(str.pilotName);
-  })
+  });
 });

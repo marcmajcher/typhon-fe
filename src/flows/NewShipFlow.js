@@ -8,6 +8,7 @@ export default function NewShipFlow() {
   const [choiceId, setChoiceId] = useState(0);
   const [shipInfo, setShipInfo] = useState([]);
 
+  console.log(pilotInfo)
   const route = `/data/ships/${pilotInfo.species}`;
   const shipRoute = useRoute(route);
 

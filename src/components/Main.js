@@ -23,12 +23,12 @@ export default function Main(props) {
   const getInfo = useRoute('/user/info');
 
   useEffect(() => {
-    loggedIn && getInfo().then(res => {
+    loggedIn && hasPilot && hasShip && getInfo().then(res => {
       console.log("GOT INFO!", res);
       dispatch(setPilotInfo(res.pilot));
       dispatch(setShipInfo(res.ship));
     });
-  }, [loggedIn]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [loggedIn, hasPilot, hasShip]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <main>
     {loggedIn ?

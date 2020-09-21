@@ -8,9 +8,7 @@ import SplashPage from '../pages/SplashPage';
 import TestConsole from './TestConsole';
 import { useRoute } from '../hooks/useRoute';
 
-// import Loading from './Loading'
-
-import { setPilotInfo } from '../actions';
+import { setPilotInfo, setShipInfo } from '../actions';
 import NewShipFlow from '../flows/NewShipFlow';
 
 export default function Main(props) {
@@ -22,10 +20,14 @@ export default function Main(props) {
   const loggedIn = !!userInfo;
   const hasPilot = !!pilotInfo;
   const hasShip = !!shipInfo;
-  const getPilot = useRoute('/pilot');
+  const getInfo = useRoute('/user/info');
 
   useEffect(() => {
-    loggedIn && getPilot().then(res => dispatch(setPilotInfo(res)));
+    loggedIn && getInfo().then(res => {
+      console.log("GOT INFO!", res);
+      dispatch(setPilotInfo(res.pilot));
+      dispatch(setShipInfo(res.ship));
+    });
   }, [loggedIn]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <main>

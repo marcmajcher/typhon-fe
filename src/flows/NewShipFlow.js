@@ -22,7 +22,7 @@ export default function NewShipFlow() {
   }
 
   function setPlayerShipInfo() {
-    newShipRoute({ shipId: choiceId }).then(res => dispatch(setShipInfo(res)));
+    newShipRoute({ shiptype: choiceId }).then(res => dispatch(setShipInfo(res)));
   }
 
   return <div className="center">

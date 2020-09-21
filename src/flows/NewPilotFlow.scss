@@ -118,3 +118,21 @@ li {
     padding: 8px;
   }
 }
+
+.pilot-confirm {
+  text-align: center;
+
+  input[type="text"] {
+    font-size: 1.5em;
+  }
+
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5em;
+
+    tr td:first-child {
+      text-align: right;
+    }
+  }
+}

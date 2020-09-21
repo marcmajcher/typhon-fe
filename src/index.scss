@@ -1,4 +1,4 @@
-@import './styles/base.scss';
+@import "./styles/base.scss";
 
 body {
   background-color: black;
@@ -20,5 +20,17 @@ button:hover {
   background-color: $color-light;
   border-color: $color-dark;
   color: $color-dark;
+}
 
+input[type="text"] {
+  background-color: $color-light;
+  border-color: $color-base;
+  border-radius: 0;
+  font-family: $font-base;
+  height: 2em;
+
+  &:focus,
+  &:hover {
+    border-color: $color-darker;
+  }
 }

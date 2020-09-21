@@ -41,8 +41,8 @@ export default function NewPilotSelectStep(props) {
 
     {data.map(e => <Card key={`${e.id}-${e.name}`} info={e}
       handleChange={handleChange} choiceId={choiceId} field={field} />)}
-    <div>
 
+    <div>
       <button className={step === 0 ? 'hidden' : ''} onClick={previousStep}>&lt; Previous Step</button>{' '}
       <button className={choiceId === 0 ? 'hidden' : ''} onClick={() => { nextStep(); setChoiceId(0); }}>Next Step &gt;</button>
     </div>

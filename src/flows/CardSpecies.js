@@ -4,7 +4,7 @@ import getImage from '../lib/getImage';
 export default function CardSpecies(props) {
   const { info, choiceId, handleChange, field } = props;
 
-  return <div className="card species-card">
+  return <div className="card species-card" >
     <input className="card-radio" id={info.name} type="radio" name={field} value={info.id}
       onChange={handleChange} checked={choiceId === info.id} />
     <label htmlFor={info.name}>

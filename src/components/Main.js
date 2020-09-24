@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './Main.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
-import HomePage from '../pages/HomePage';
+import HomePage from '../scenes/HomePage';
 import NewPilotFlow from '../flows/NewPilotFlow';
-import SplashPage from '../pages/SplashPage';
+import SplashPage from '../scenes/SplashPage';
 import TestConsole from './TestConsole';
 import { useRoute } from '../hooks/useRoute';
 

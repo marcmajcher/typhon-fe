@@ -21,13 +21,18 @@ $color-dark: #806000;
 $color-darker: #403000;
 $color-white: #cccccc;
 $color-darkest: #0f0f17;
+$color-background:  #1d1b11;
 $font-base: "Source Code Pro", monospace;
+
+.center {
+  text-align: center;
+}
+
+.glow {
+  text-shadow: 0 0 2px $color-base, 0 0 2px $color-base;
+}
 
 .hidden {
   visibility: hidden;
 }
 
-
-.center {
-  text-align: center;
-}

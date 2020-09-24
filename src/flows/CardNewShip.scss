@@ -1,4 +1,5 @@
 @import "../styles/base.scss";
+@import "../styles/grid.scss";
 
 div.ship-card {
   margin-bottom: 2em;
@@ -61,20 +62,22 @@ div.ship-card {
   .defense {
     padding-right: 0;
   }
+  
+  input[type="radio"].card-radio:checked + label {
+    background-color: $color-base;
+    border: 0;
+    color: black;
+    margin: 0;
+  }
+  
+  input[type="radio"].card-radio:checked + label div.ship-name {
+    background-color: black;
+    border: 2px solid $color-base;
+    color: $color-base;
+  }
+  input[type="radio"].card-radio:checked + label div.ship-name h3 {
+    height: 102px;
+    margin-bottom: 0;
+  }
 }
 
-input[type="radio"].card-radio + label {
-  border: 2px solid $color-darkest;
-  margin: 0;
-}
-
-input[type="radio"].card-radio:checked + label div.ship-name {
-  background-color: black;
-  border: 2px solid $color-base;
-  border-bottom: 2px solid $color-base;
-  color: $color-base;
-}
-input[type="radio"].card-radio:checked + label div.ship-name h3 {
-  height: 102px;
-  margin-bottom: 0;
-}

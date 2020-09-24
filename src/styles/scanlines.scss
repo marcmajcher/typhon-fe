@@ -1,0 +1,68 @@
+$scan-width: 2px;
+$scan-crt: false;
+$scan-fps: 60;
+$scan-color: rgba(#000, 0.2);
+$scan-z-index: 2147483648;
+$scan-moving-line: true;
+$scan-opacity: 0.75;
+
+@mixin scan-crt($scan-crt) {
+  @if $scan-crt == true {
+    animation: scanlines 1s steps($scan-fps) infinite;
+  } @else {
+    animation: none;
+  }
+}
+
+@mixin scan-moving($scan-moving-line) {
+  @if $scan-moving-line == true {
+    animation: scanline 6s linear infinite;
+  } @else {
+    animation: none;
+  }
+}
+
+.scanlines {
+  position: relative;
+  overflow: hidden;
+
+  &:before,
+  &:after {
+    display: block;
+    pointer-events: none;
+    content: "";
+    position: absolute;
+  }
+
+  &:before {
+    width: 100%;
+    height: $scan-width * 1;
+    z-index: $scan-z-index + 1;
+    background: $scan-color;
+    opacity: $scan-opacity;
+    @include scan-moving($scan-moving-line);
+  }
+
+  &:after {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $scan-z-index;
+    background: linear-gradient(to bottom, transparent 50%, $scan-color 51%);
+    background-size: 100% $scan-width * 2;
+    @include scan-crt($scan-crt);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translate3d(0, 200000%, 0);
+  }
+}
+
+@keyframes scanlines {
+  0% {
+    background-position: 0 50%;
+  }
+}

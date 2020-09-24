@@ -27,7 +27,7 @@ export default function App() {
   }, [token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    flick && <div className="App">
+    flick && <div className="App scanlines">
       <TopNav />
       <Main />
     </div>

@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { Provider } from 'react-redux';
 import { store } from './redux-store';
-import './styles/skeleton-lite.scss';
+import './styles/normalize.scss'
+import './styles/scanlines.scss';
 import './index.scss';
 
 ReactDOM.render(

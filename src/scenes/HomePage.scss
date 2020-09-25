@@ -1,11 +1,6 @@
 @import "../styles/base.scss";
 
 .page-home {
-  .selected {
-    background-color: $color-light;
-    color: $color-darkest;
-  }
-
   .welcome {
     border-bottom: 2px solid $color-base;
     font-size: 2em;
@@ -24,10 +19,11 @@
     font-size: 2rem;
     width: 320px;
   }
-  
+
   .maincol {
     font-size: 2rem;
-    width: 500px;
+    // width: 500px;
+    width: auto;
   }
 
   h2 {
@@ -35,4 +31,27 @@
     font-size: 1em;
     font-weight: bold;
   }
+}
+
+.menu {
+  h2 {
+    cursor: pointer;
+
+    &:hover,
+    &.selected {
+      background-color: $color-light;
+      color: $color-darkest;
+    }
+  }
+}
+
+.jump-menu {
+  float: left;
+  width: 400px;
+  border: 1px solid blue;
+}
+
+.jump-destination {
+  border: 1px solid red;
+  width: auto;
 }

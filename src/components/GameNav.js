@@ -8,11 +8,11 @@ export default function GameNav(props) {
     return `[ ${left} ${text.toUpperCase()} ${right} ]`;
   }
 
-  return <div>
+  return <div className="menu">
     {props.menuItems.map((item, index) =>
-      <h2 key={item + index} className={props.active && index === props.index ? 'selected' : ''}
+      <h2 key={item + index} className={index === props.index ? 'selected' : ''}
         onClick={() => props.handleClick(index)}>
-        {getMenuItem(item, (props.active || (index !== props.index) )? '-' : '>')}
+        {getMenuItem(item, ( (index !== props.index) )? '-' : '>')}
       </h2>)}
   </div>;
 }

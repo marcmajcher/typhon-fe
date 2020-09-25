@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import useEventListener from '@use-it/event-listener';
+// import useEventListener from '@use-it/event-listener';
 import GameNav from '../components/GameNav';
 import StatusInfo from '../components/StatusInfo';
 
@@ -36,28 +36,9 @@ const mainMenuItems = [
 export default function HomePage() {
   const pilotInfo = useSelector(s => s.pilotInfo);
   const [statusInfo] = useState(fakeInfo);
-  const [mainNavIndex, setMainNavIndex] = useState(0);
-  const [mainNavActive, setMainNavActive] = useState(true);
+  const [mainNavIndex, setMainNavIndex] = useState(1);
 
-  function handleNav(e) {
-    switch (e.key) {
-      case 'ArrowDown':
-        mainNavActive && setMainNavIndex(Math.min(mainNavIndex + 1, mainMenuItems.length - 1));
-        break;
-      case 'ArrowUp':
-        mainNavActive && setMainNavIndex(Math.max(0, mainNavIndex - 1));
-        break;
-      case 'ArrowRight':
-        mainMenuItems[mainNavIndex].subMenu && setMainNavActive(false);
-        break;
-      case 'ArrowLeft':
-        mainMenuItems[mainNavIndex].subMenu && setMainNavActive(true);
-        break;
-      default:
-        console.log(e.key);
-    }
-  }
-  useEventListener('keydown', (e) => handleNav(e));
+  const Screen = mainMenuItems[mainNavIndex].screen;
 
   function setMainMenuItem(index) {
     setMainNavIndex(index);
@@ -71,13 +52,39 @@ export default function HomePage() {
       <div className="column leftcol">
         <StatusInfo info={statusInfo} />
         <GameNav index={mainNavIndex} menuItems={mainMenuItems.map(item => item.name)}
-          handleClick={setMainMenuItem} active={mainNavActive} />
+          handleClick={setMainMenuItem}  />
       </div>
       <div className="column maincol">
-        {mainMenuItems[mainNavIndex].screen({ active: !mainNavActive })}
+        <Screen/>
       </div>
 
     </div>
 
   </div>;
 }
+
+
+
+
+  // const [mainNavActive, setMainNavActive] = useState(true);
+
+  // TK maybe later
+  // function handleNav(e) {
+  //   switch (e.key) {
+  //     case 'ArrowDown':
+  //       mainNavActive && setMainNavIndex(Math.min(mainNavIndex + 1, mainMenuItems.length - 1));
+  //       break;
+  //     case 'ArrowUp':
+  //       mainNavActive && setMainNavIndex(Math.max(0, mainNavIndex - 1));
+  //       break;
+  //     case 'ArrowRight':
+  //       mainMenuItems[mainNavIndex].subMenu && setMainNavActive(false);
+  //       break;
+  //     case 'ArrowLeft':
+  //       mainMenuItems[mainNavIndex].subMenu && setMainNavActive(true);
+  //       break;
+  //     default:
+  //       console.log(e.key);
+  //   }
+  // }
+  // useEventListener('keydown', (e) => handleNav(e));

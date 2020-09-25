@@ -1,6 +1,31 @@
-import React from 'react';
-import SecondNav from '../components/SubNav';
+import React, { useState } from 'react';
+import GameNav from '../components/GameNav';
+
+
+
+const subMenuItems = [
+  { name: 'weapons', screen: null, subMenu: true },
+  { name: 'defense', screen: null, subMenu: true },
+  { name: 'accessories', screen: null, subMenu: true },
+  { name: 'skillware', screen: null, subMenu: true },
+  { name: 'shipyard', screen: null, subMenu: true },
+  { name: 'shärrzhäsh', screen: null, subMenu: true },
+  { name: 'cantina', screen: null, subMenu: true },
+  { name: 'jobs', screen: null, subMenu: true },
+  { name: 'news', screen: null, subMenu: true },
+  { name: 'rankings', screen: null, subMenu: true },
+];
 
 export default function StationScreen() {
-  return <div><SecondNav index={0} /></div>;
+  const [subMenuIndex, setSubMenuIndex] = useState(0);
+
+  function setSubMenuItem(index) {
+    setSubMenuIndex(index);
+  }
+
+  return <div className="column midcol">
+    <GameNav index={subMenuIndex} menuItems={subMenuItems.map(item => item.name)}
+      handleClick={setSubMenuItem} />
+  </div>;
 }
+

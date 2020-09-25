@@ -49,9 +49,11 @@ const images = {
   energy: 'gooey-molecule',
   atomic: 'laser-precision',
   missile: 'missile-swarm',
+
+  scrapyard: 'ship-wreck',
 }
 
-export default function getImage(key) {
+export default function getImage(key, className) {
   const imgPath = `/img/${images[key.toLowerCase()]}.svg`;
-  return <img alt={key} title={key} src={imgPath} />
+  return <img alt={key} title={key} src={imgPath} className={className} />
 }

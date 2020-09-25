@@ -1,5 +1,5 @@
 import React from 'react';
-
+import getImage from '../lib/getImage'
 const jumps = ['The ScrapYard', 'Varchi Belt', 'Something Else, Probably'];
 
 export default function HangarScreen() {
@@ -17,6 +17,7 @@ export default function HangarScreen() {
       {jumps.map(jump => <h2>{getMenuItem(jump)}</h2>)}
     </div>
     <div className="jump-destination">
+      {getImage('scrapyard', 'destination-image')}
       <h2>The Scrapyard</h2>
       <p>Here's a description of the area. It sounds super cool and you totally want to go there and fight space pirates or whatever and bring back a bunch of stuff to sell, right?</p>
       <div>

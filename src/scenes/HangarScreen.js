@@ -12,8 +12,8 @@ export default function HangarScreen() {
   }
 
   return <div>
-    <div className="jump-menu">
-      <h2 className="glow">[ ------- AVAILABLE JUMPS ------- ]</h2>
+    <div className="menu jump-menu">
+      <h2 className="glow">[ ------- AVAILABLE JUMPS ------ ]</h2>
       {jumps.map(jump => <h2>{getMenuItem(jump)}</h2>)}
     </div>
     <div className="jump-destination">

@@ -23,7 +23,7 @@ export default function StationScreen() {
     setSubMenuIndex(index);
   }
 
-  return <div className="column midcol">
+  return <div className="column station-nav">
     <GameNav index={subMenuIndex} menuItems={subMenuItems.map(item => item.name)}
       handleClick={setSubMenuItem} />
   </div>;

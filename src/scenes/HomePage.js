@@ -47,19 +47,14 @@ export default function HomePage() {
   return <div className="container-fluid page-home">
     <h1 className="welcome glow">Welcome to Typhon Station, {pilotInfo.name}!</h1>
 
-    <div className="row">
-
-      <div className="column leftcol">
-        <StatusInfo info={statusInfo} />
-        <GameNav index={mainNavIndex} menuItems={mainMenuItems.map(item => item.name)}
-          handleClick={setMainMenuItem}  />
-      </div>
-      <div className="column maincol">
-        <Screen/>
-      </div>
-
+    <div className="left-nav">
+      <StatusInfo info={statusInfo} />
+      <GameNav index={mainNavIndex} menuItems={mainMenuItems.map(item => item.name)}
+        handleClick={setMainMenuItem} />
     </div>
-
+    <div className="main-area">
+      <Screen />
+    </div>
   </div>;
 }
 

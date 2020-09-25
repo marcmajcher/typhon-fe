@@ -55,6 +55,9 @@
       background-color: $color-light;
       color: $color-darkest;
     }
+    &.no-select:hover {
+      background-color: transparent;
+    }
   }
 }
 
@@ -65,7 +68,7 @@
 }
 
 .jump-destination {
-margin-left: 410px;
+  margin-left: 410px;
 }
 
 .destination-image {

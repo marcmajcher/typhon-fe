@@ -14,7 +14,7 @@ import NewShipFlow from '../flows/NewShipFlow';
 export default function Main(props) {
   const dispatch = useDispatch();
   const [consoleHidden, setConsoleHidden] = useState(true);
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(true);
 
   const userInfo = useSelector(s => s.userInfo);
   const pilotInfo = useSelector(s => s.pilotInfo);
@@ -27,6 +27,7 @@ export default function Main(props) {
 
   useEffect(() => {
     loggedIn && getInfo().then(res => {
+      setLoaded(false);
       res.pilot && dispatch(setPilotInfo(res.pilot));
       res.ship && dispatch(setShipInfo(res.ship));
       setLoaded(true);

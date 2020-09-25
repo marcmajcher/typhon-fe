@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-// import useEventListener from '@use-it/event-listener';
 import GameNav from '../components/GameNav';
 import StatusInfo from '../components/StatusInfo';
 
@@ -57,29 +56,3 @@ export default function HomePage() {
     </div>
   </div>;
 }
-
-
-
-
-  // const [mainNavActive, setMainNavActive] = useState(true);
-
-  // TK maybe later
-  // function handleNav(e) {
-  //   switch (e.key) {
-  //     case 'ArrowDown':
-  //       mainNavActive && setMainNavIndex(Math.min(mainNavIndex + 1, mainMenuItems.length - 1));
-  //       break;
-  //     case 'ArrowUp':
-  //       mainNavActive && setMainNavIndex(Math.max(0, mainNavIndex - 1));
-  //       break;
-  //     case 'ArrowRight':
-  //       mainMenuItems[mainNavIndex].subMenu && setMainNavActive(false);
-  //       break;
-  //     case 'ArrowLeft':
-  //       mainMenuItems[mainNavIndex].subMenu && setMainNavActive(true);
-  //       break;
-  //     default:
-  //       console.log(e.key);
-  //   }
-  // }
-  // useEventListener('keydown', (e) => handleNav(e));

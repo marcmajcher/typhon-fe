@@ -1,12 +1,8 @@
 import React from 'react';
+import menuMaker from '../lib/getMenuItem';
 
 export default function GameNav(props) {
-  function getMenuItem(text, fill = '-') {
-    const columns = 24;
-    const left = fill.repeat((columns - 4) / 2 - Math.floor(text.length / 2));
-    const right = fill.repeat((columns - 4) / 2 - Math.ceil(text.length / 2));
-    return `[ ${left} ${text.toUpperCase()} ${right} ]`;
-  }
+  const getMenuItem = menuMaker(30);
 
   return <div className="menu">
     {props.menuItems.map((item, index) =>

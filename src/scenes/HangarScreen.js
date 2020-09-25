@@ -1,8 +1,19 @@
-import React from 'react';
-import getImage from '../lib/getImage'
-const jumps = ['The ScrapYard', 'Varchi Belt', 'Something Else, Probably'];
+import React, { useEffect, useState } from 'react';
+import JumpDestination from '../components/JumpDestination';
+import { useRoute } from '../hooks/useRoute';
 
 export default function HangarScreen() {
+  const [loaded, setLoaded] = useState(false);
+  const [jumps, setJumps] = useState([]);
+  const [location, setLocation] = useState({});
+  const jumpRoute = useRoute('/loc');
+
+  useEffect(() => {
+    jumpRoute().then(res => {
+      setJumps(res);
+      setLoaded(true);
+    });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function getMenuItem(text, fill = '-') {
     const columns = 33;
@@ -11,18 +22,12 @@ export default function HangarScreen() {
     return `[ ${left} ${text.toUpperCase()} ${right} ]`;
   }
 
-  return <div>
+  return loaded && <div>
     <div className="menu jump-menu">
       <h2 className="glow">[ ------- AVAILABLE JUMPS ------ ]</h2>
-      {jumps.map(jump => <h2>{getMenuItem(jump)}</h2>)}
+      {jumps.map(jump => <h2 key={jump.id} className={jump.id === location.id ? 'selected' : ''}
+        onClick={() => setLocation(jump)}>{getMenuItem(jump.name)}</h2>)}
     </div>
-    <div className="jump-destination">
-      {getImage('scrapyard', 'destination-image')}
-      <h2>The Scrapyard</h2>
-      <p>Here's a description of the area. It sounds super cool and you totally want to go there and fight space pirates or whatever and bring back a bunch of stuff to sell, right?</p>
-      <div>
-        <button>JUMP</button>
-      </div>
-    </div>
+    <JumpDestination location={location} />
   </div>;
 }

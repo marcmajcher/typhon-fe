@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-// import { useRoute } from '../hooks/useRoute';
+import { useRoute } from '../hooks/useRoute';
 import './TestConsole.css';
 
 export default function TestConsole() {
@@ -9,16 +9,21 @@ export default function TestConsole() {
   // const userInfo = useSelector(s => s.userInfo);
   // const shipInfo = useSelector(s => s.shipInfo);
   // const infoRoute = useRoute('/user/info');
+const locRoute = useRoute('/loc');
 
-  // const [data, setData] = useState({});
-  // useEffect(() => {
-  //   infoRoute().then(info => setData(info));
-  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  const [data, setData] = useState({});
+  useEffect(() => {
+    locRoute().then(info => setData(info));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  function show(obj, label='Data') {
+    return <li><pre>{label}: {JSON.stringify(obj, null, '\t')}</pre></li>
+  }
   return <div className="console">
     <div className="console-header"><b>Test Console</b></div>
     <ul>
       <li>Logged in: {loggedIn.toString()}</li>
+      {show(data)}
       {/* <li><pre>Info: {JSON.stringify(data, null, '\t')}</pre></li> */}
       {/* <li><pre>UserInfo: {JSON.stringify(userInfo, null, '\t')}</pre></li>
       <li><pre>PilotInfo: {JSON.stringify(pilotInfo, null, '\t')}</pre></li>

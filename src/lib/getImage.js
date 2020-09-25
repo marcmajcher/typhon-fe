@@ -51,6 +51,7 @@ const images = {
   missile: 'missile-swarm',
 
   scrapyard: 'ship-wreck',
+  varchi: 'asteroid',
 }
 
 export default function getImage(key, className) {

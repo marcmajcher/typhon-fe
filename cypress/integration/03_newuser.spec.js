@@ -144,4 +144,8 @@ describe('New User Flow', () => {
     cy.contains(str.getShip).click();
     cy.contains(str.pilotName);
   });
+
+  it('Should take you to the main screen after you select your ship', () => {
+    cy.contains(`Welcome to Typhon Station, ${str.pilotName}!`)
+  })
 });

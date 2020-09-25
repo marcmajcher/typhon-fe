@@ -4,6 +4,7 @@ import GameNav from '../components/GameNav';
 
 
 const subMenuItems = [
+  { name: 'concourse', screen: null, subMenu: false },
   { name: 'weapons', screen: null, subMenu: true },
   { name: 'defense', screen: null, subMenu: true },
   { name: 'accessories', screen: null, subMenu: true },

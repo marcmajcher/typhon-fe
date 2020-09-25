@@ -35,7 +35,7 @@ const mainMenuItems = [
 export default function HomePage() {
   const pilotInfo = useSelector(s => s.pilotInfo);
   const [statusInfo] = useState(fakeInfo);
-  const [mainNavIndex, setMainNavIndex] = useState(1);
+  const [mainNavIndex, setMainNavIndex] = useState(0);
 
   const Screen = mainMenuItems[mainNavIndex].screen;
 

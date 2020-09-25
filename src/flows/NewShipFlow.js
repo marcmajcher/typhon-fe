@@ -11,7 +11,6 @@ export default function NewShipFlow() {
   const [shipInfo, setShipData] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
-  console.log(pilotInfo)
   const shipDataRoute = useRoute(`/data/ships/${pilotInfo.speciesId || pilotInfo.species}`); // should be id, but “¯\_(ツ)_/¯“
   const newShipRoute = useRoute('/ship', 'post');
 

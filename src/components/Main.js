@@ -32,7 +32,7 @@ export default function Main(props) {
       res.ship && dispatch(setShipInfo(res.ship));
       setLoaded(true);
     });
-  }, [loggedIn, hasPilot, hasShip]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [loggedIn]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return loaded && <main>
     {loggedIn ?

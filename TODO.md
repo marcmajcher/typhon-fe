@@ -13,6 +13,8 @@
 * About page
 * FAQ page
 
+* Responsive menus -> icons for words
+
 ## Nice To Have
 
 * cache data from /data

@@ -7,7 +7,7 @@ import { useLogin } from '../hooks/useLogin';
 export default function LoginButton() {
   const handleLogin = useLogin();
   const dispatch = useDispatch();
-  
+
   const appId = useSelector((s) => s.appId);
   const loggedIn = useSelector((s) => s.loggedIn);
 
@@ -25,7 +25,7 @@ export default function LoginButton() {
         <GoogleLogin
           clientId={appId}
           onSuccess={(res) => handleLogin(res)}
-          onFailure={(res) => console.error(`Login Error: ${res}`)}
+          onFailure={(res) => console.error('Login Error:', res)}
           cookiePolicy={'single_host_origin'}
           render={renderProps => (
             <button onClick={renderProps.onClick}>Login with Google</button>

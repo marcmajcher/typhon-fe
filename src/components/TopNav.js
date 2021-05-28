@@ -9,7 +9,7 @@ export default function TopNav() {
   const clearMe = useRoute('/pilot/clearme');
 
   return <nav className="top-nav">
-    <h1 className="title">TYPHON STATIONN</h1>
+    <h1 className="title">TYPHON STATION</h1>
     {userInfo ?
       <img className="user-image" src={userInfo.imageUrl} alt="user" />
       : ''}

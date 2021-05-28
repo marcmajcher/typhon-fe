@@ -6,7 +6,7 @@ const defaultStore = {
     '240075575983-v6lk702qaapea93k2641oh4fg6deeh8s.apps.googleusercontent.com',
   endpoint:
     process.env.NODE_ENV === 'production'
-      ? 'https://my-app-backend.herokuapp.com'
+      ? 'https://typhon-station-backend.herokuapp.com/'
       : 'http://localhost:3000',
   gameState: undefined,
   loggedIn: false,

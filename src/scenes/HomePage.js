@@ -23,6 +23,7 @@ const fakeInfo = {
   cargo: 14,
   maxCargo: 100
 };
+
 const mainMenuItems = [
   { name: 'station', screen: StationScreen, subMenu: true },
   { name: 'hangar', screen: HangarScreen, subMenu: true },

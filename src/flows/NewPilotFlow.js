@@ -47,7 +47,7 @@ export default function NewPilotFlow() {
   function finish(name) {
     const sendInfo = Object.keys(pilotInfo).reduce((a, c) => { a[c] = pilotInfo[c].id; return a; }, {});
     sendInfo.name = name;
-    createPilot(sendInfo).then(res => dispatch(dispatchPilotInfo(sendInfo)));
+    createPilot(sendInfo).then(res => dispatch(dispatchPilotInfo(res)));
   }
 
   return flick && <div>

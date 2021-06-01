@@ -12,17 +12,6 @@ import JobsScreen from './JobsScreen';
 
 import './HomePage.scss';
 
-const fakeInfo = {
-  xpToLevel: 1234567,
-  nextLevel: 90,
-  fuel: 172,
-  maxFuel: 400,
-  hullPoints: 4,
-  maxHull: 17,
-  credits: 1234567890,
-  cargo: 14,
-  maxCargo: 100
-};
 const mainMenuItems = [
   { name: 'station', screen: StationScreen, subMenu: true },
   { name: 'hangar', screen: HangarScreen, subMenu: true },
@@ -34,7 +23,7 @@ const mainMenuItems = [
 
 export default function HomePage() {
   const pilotInfo = useSelector(s => s.pilotInfo);
-  const [statusInfo] = useState(fakeInfo);
+  const shipInfo = useSelector(s => s.shipInfo);
   const [mainNavIndex, setMainNavIndex] = useState(0);
 
   const Screen = mainMenuItems[mainNavIndex].screen;
@@ -47,7 +36,7 @@ export default function HomePage() {
     <h1 className="welcome glow">Welcome to Typhon Station, {pilotInfo.name}!</h1>
 
     <div className="left-nav">
-      <StatusInfo info={statusInfo} />
+      <StatusInfo pilotInfo={pilotInfo} shipInfo={shipInfo} />
       <GameNav index={mainNavIndex} menuItems={mainMenuItems.map(item => item.name)}
         handleClick={setMainMenuItem} />
     </div>

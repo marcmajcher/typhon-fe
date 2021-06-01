@@ -8,12 +8,12 @@ export default function NewPilotConfirm(props) {
     <input type="text" name="pilot-name" value={name} onChange={e => setName(e.target.value)} placeholder="Your name here" />
     <table>
       <tbody>
-      {props.steps.map(e =>
-        <tr key={e.field}>
-          <td> {e.field.toUpperCase()}: </td>
-          <td>{props.pilotInfo[e.field].name}</td>
-        </tr>
-      )}
+        {props.steps.map(e =>
+          <tr key={e.field}>
+            <td> {e.field.toUpperCase()}: </td>
+            <td>{props.pilotInfo[e.field].name}</td>
+          </tr>
+        )}
       </tbody>
     </table>
     <button onClick={props.goBack}>Go Back</button>{' '}

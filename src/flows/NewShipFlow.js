@@ -11,14 +11,14 @@ export default function NewShipFlow() {
   const [shipInfo, setShipData] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
-  const shipDataRoute = useRoute(`/data/ships/${pilotInfo.speciesId || pilotInfo.species}`); // should be id, but “¯\_(ツ)_/¯“
+  const shipDataRoute = useRoute(`/data/ships/${pilotInfo.speciesId}`);
   const newShipRoute = useRoute('/ship', 'post');
 
   useEffect(() => {
     shipDataRoute().then(data => {
       setShipData(data);
       setLoaded(true);
-    })
+    });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleChange(e) {

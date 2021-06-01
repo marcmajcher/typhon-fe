@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import './TestConsole.css';
 
 export default function TestConsole() {
-  const loggedIn = useSelector(s => s.loggedIn);
-  const pilotInfo = useSelector(s => s.pilotInfo);
+  // const loggedIn = useSelector(s => s.loggedIn);
   // const userInfo = useSelector(s => s.userInfo);
+  const pilotInfo = useSelector(s => s.pilotInfo);
   const shipInfo = useSelector(s => s.shipInfo);
   // const infoRoute = useRoute('/user/info');
   // const locRoute = useRoute('/loc');
@@ -24,10 +24,10 @@ export default function TestConsole() {
   return <div className="console">
     <div className="console-header"><b>Test Console</b></div>
     <ul>
-      <li>Logged in: {loggedIn.toString()}</li>
-      {/* {show(data)} */}
-      {show(pilotInfo)}
-      {show(shipInfo)}
+      {/* <li>Logged in: {loggedIn.toString()}</li> */}
+      {/* {show(userInfo, "User Info")} */}
+      {show(pilotInfo, "Pilot Info")}
+      {show(shipInfo, "Ship Info")}
     </ul>
   </div>;
 }

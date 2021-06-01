@@ -10,7 +10,7 @@ export default function NewPilotSelectStep(props) {
 
   const [choiceId, setChoiceId] = useState(0);
   const [data, setData] = useState([]);
-  const [cardType, setCardType] = useState()
+  const [cardType, setCardType] = useState();
 
   const route = `/data/${field}${field !== 'species' ? `/${pilotInfo.species.id}` : ''}`;
   const dataRoute = useRoute(route);
@@ -36,7 +36,7 @@ export default function NewPilotSelectStep(props) {
 
   const Card = cards[cardType] || CardDefault;
 
-  return (field === cardType) && <div className="center"> 
+  return (field === cardType) && <div className="center">
     <h3 className="label">{label}</h3>
 
     {data.map(e => <Card key={`${e.id}-${e.name}`} info={e}

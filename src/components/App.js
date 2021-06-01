@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './App.scss';
+import '../styles/App.scss';
 import { checkToken, logOutUser, setUserInfo } from '../actions';
 import axios from 'axios';
 

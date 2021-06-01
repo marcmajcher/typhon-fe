@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import LoginButton from './LoginButton';
-import './TopNav.scss';
+import '../styles/TopNav.scss';
 import { useRoute } from '../hooks/useRoute';
 
 export default function TopNav() {
@@ -14,6 +14,6 @@ export default function TopNav() {
       <img className="user-image" src={userInfo.imageUrl} alt="user" />
       : ''}
     <LoginButton />
-    <span id="clearme" onClick={() => clearMe().then(res => console.info(res))}>.</span>
+    <span id="clearme" onClick={() => clearMe().then(console.info)}>.</span>
   </nav>;
 }

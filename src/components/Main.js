@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Main.scss';
+import '../styles/Main.scss';
 import { useDispatch, useSelector } from 'react-redux';
 
 import HomePage from '../scenes/HomePage';

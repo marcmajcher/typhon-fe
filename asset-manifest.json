@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/typhon-fe/static/css/main.b38a1aff.css",
+    "main.js": "/typhon-fe/static/js/main.7ca21f1d.js",
+    "static/media/SourceCodePro-Medium.ttf": "/typhon-fe/static/media/SourceCodePro-Medium.8502e42c812c53aacf37.ttf",
+    "static/media/SourceCodePro-Black.ttf": "/typhon-fe/static/media/SourceCodePro-Black.9ed400a32595fb94e96b.ttf",
+    "index.html": "/typhon-fe/index.html",
+    "main.b38a1aff.css.map": "/typhon-fe/static/css/main.b38a1aff.css.map",
+    "main.7ca21f1d.js.map": "/typhon-fe/static/js/main.7ca21f1d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b38a1aff.css",
+    "static/js/main.7ca21f1d.js"
+  ]
+}
